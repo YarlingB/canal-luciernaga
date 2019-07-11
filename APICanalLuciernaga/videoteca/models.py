@@ -35,11 +35,12 @@ class Directores(models.Model):
 
 class Videos(models.Model):
     tipo = models.ForeignKey(Tipos, on_delete = models.CASCADE)
-    categoria = models.ForeignKey(Categorias, on_delete = models.CASCADE)
+    categoria = models.ManyToManyField(Categorias)
     nombre = models.CharField(max_length = 225)
     sinopsis = models.CharField(max_length = 225)
-    fecha = models.DateField()
+    fecha = models.DateField() 
     director = models.ForeignKey(Directores, on_delete = models.CASCADE)
+    produccion = models.CharField(max_length = 255)
     pais = models.ForeignKey(Pais, on_delete = models.CASCADE)
     url = models.URLField(null = True, blank = True)
     slug = models.SlugField(max_length = 250, unique=True, editable= False)

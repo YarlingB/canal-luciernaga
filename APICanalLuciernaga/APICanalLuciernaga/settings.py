@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'lugar',
     'noticias',
     # terceros
-    'nested_admin'
+    'nested_admin',
+    'taggit',
 ]
 
 MIDDLEWARE = [
