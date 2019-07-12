@@ -4,7 +4,7 @@ from lugar.models import Pais
 
 # Create your models here.
 
-class Tipos(models.Model):
+class Tipo(models.Model):
     nombre = models.CharField(max_length = 255)
     
     class Meta:
@@ -15,7 +15,7 @@ class Tipos(models.Model):
     
    
 
-class Categorias(models.Model):
+class Categoria(models.Model):
     nombre = models.CharField(max_length = 255)
 
     class Meta:
@@ -25,7 +25,7 @@ class Categorias(models.Model):
         return self.nombre
 
 
-class Directores(models.Model):
+class Director(models.Model):
     nombre = models.CharField(max_length = 255)
     fecha_nacimiento = models.DateField()
 
@@ -33,16 +33,18 @@ class Directores(models.Model):
         return self.nombre
 
 
-class Videos(models.Model):
-    tipo = models.ForeignKey(Tipos, on_delete = models.CASCADE)
-    categoria = models.ManyToManyField(Categorias)
+class Video(models.Model):
+    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
+    categoria = models.ManyToManyField(Categoria)
     nombre = models.CharField(max_length = 225)
     sinopsis = models.CharField(max_length = 225)
     fecha = models.DateField() 
-    director = models.ForeignKey(Directores, on_delete = models.CASCADE)
+    director = models.ForeignKey(Director, on_delete = models.CASCADE)
     produccion = models.CharField(max_length = 255)
     pais = models.ForeignKey(Pais, on_delete = models.CASCADE)
+    duracion = models.CharField(max_length = 255)
     url = models.URLField(null = True, blank = True)
+    live = models.BooleanField()
     slug = models.SlugField(max_length = 250, unique=True, editable= False)
 
     def __str__(self):
@@ -50,7 +52,7 @@ class Videos(models.Model):
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)
-        super(Videos, self).save(*args, **kwargs)
+        super(Video, self).save(*args, **kwargs)
 
 TEMPORADAS_CHOICE = [
     (1, 'Temporada 1'),
@@ -60,12 +62,12 @@ TEMPORADAS_CHOICE = [
     (5, 'Temporada 5'),
 ]
 
-class Temporadas(models.Model):
-    info_video = models.ForeignKey(Videos, on_delete = models.CASCADE)
+class Temporada(models.Model):
+    info_video = models.ForeignKey(Video, on_delete = models.CASCADE)
     temporada = models.IntegerField(choices = TEMPORADAS_CHOICE)
 
-class Episodios(models.Model):
-    temporada = models.ForeignKey(Temporadas, related_name = 'episodio_temporada', on_delete = models.CASCADE)
+class Episodio(models.Model):
+    temporada = models.ForeignKey(Temporada, related_name = 'episodio_temporada', on_delete = models.CASCADE)
     link = models.URLField(max_length = 225)
     titulo = models.CharField(max_length = 225)
     sinopsis = models.CharField(max_length = 225)
@@ -77,7 +79,7 @@ class Episodios(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.titulo)
-        super(Episodios, self).save(*args, **kwargs)
+        super(Episodio, self).save(*args, **kwargs)
 
 
 

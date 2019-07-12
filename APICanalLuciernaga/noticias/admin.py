@@ -1,12 +1,21 @@
 from django.contrib import admin
-from .models import Tematicas, Noticias
+from .models import Categoria, Clasificacion, Comunicacion, Tipo
 
-class TematicasAdmin(admin.ModelAdmin):
+class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
 
-class NoticiasAdmin(admin.ModelAdmin):
-    autocomplete_fields = ['tematica']
+class ClasificacionAdmin(admin.ModelAdmin):
+    search_fields = ['nombre']
+    autocomplete_fields = ['categoria']
+
+class TipoAdmin(admin.ModelAdmin):
+    search_fields = ['nombre']
+
+class ComunicacionAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['clasificacion','tipo', 'categoria' ]
 
 # Register your models here.
-admin.site.register(Tematicas,TematicasAdmin)
-admin.site.register(Noticias,NoticiasAdmin)
+admin.site.register(Tipo, TipoAdmin)
+admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Clasificacion, ClasificacionAdmin)
+admin.site.register(Comunicacion, ComunicacionAdmin)

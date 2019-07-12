@@ -1,36 +1,36 @@
 from django.contrib import admin
-from .models import Videos, Directores, Tipos, Categorias, Episodios, Temporadas
+from .models import Video, Director, Tipo, Categoria, Episodio, Temporada
 from lugar.models import Pais
 import nested_admin
 
 
-class TiposAdmin(admin.ModelAdmin):
+class TipoAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
     
-class DirectoresAdmin(admin.ModelAdmin):
+class DirectorAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
 
-class CategoriasAdmin(admin.ModelAdmin):
+class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
 
-class EpisodiosInline(nested_admin.NestedTabularInline):
-    model = Episodios
+class EpisodioInline(nested_admin.NestedTabularInline):
+    model = Episodio
     extra = 1
 
-class TemporadasInline(nested_admin.NestedStackedInline):
-    model = Temporadas
+class TemporadaInline(nested_admin.NestedStackedInline):
+    model = Temporada
     extra = 1
-    inlines = [EpisodiosInline]
+    inlines = [EpisodioInline]
 
 
-class VideosAdmin(nested_admin.NestedModelAdmin):
+class VideoAdmin(nested_admin.NestedModelAdmin):
     autocomplete_fields = ['tipo','director','categoria', 'pais']
-    inlines = [TemporadasInline]
+    inlines = [TemporadaInline]
 
     
 
 # Register your models here.
-admin.site.register(Tipos,TiposAdmin)
-admin.site.register(Categorias,CategoriasAdmin)
-admin.site.register(Directores,DirectoresAdmin) 
-admin.site.register(Videos,VideosAdmin)  
+admin.site.register(Tipo,TipoAdmin)
+admin.site.register(Categoria,CategoriaAdmin)
+admin.site.register(Director,DirectorAdmin) 
+admin.site.register(Video,VideoAdmin)  
