@@ -26,7 +26,6 @@ class TemporadaInline(nested_admin.NestedStackedInline):
 class VideoAdmin(nested_admin.NestedModelAdmin):
     autocomplete_fields = ['tipo','director','categoria', 'pais']
     inlines = [TemporadaInline]
-
     
 
 # Register your models here.

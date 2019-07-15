@@ -15,11 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from APICanalLuciernaga import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nested_admin/', include('nested_admin.urls')),
     path('videoteca/',include('videoteca.urls')),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('pages/', include('django.contrib.flatpages.urls')),
+
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL , document_root = settings.STATIC_ROOT )
+    urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT )
+    
+urlpatterns += staticfiles_urlpatterns()
