@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('nested_admin/', include('nested_admin.urls')),
     path('videoteca/',include('videoteca.urls')),
+    path('noticia/',include('noticias.urls')),
+    path('biblioteca/',include('biblioteca.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('pages/', include('django.contrib.flatpages.urls')),
 

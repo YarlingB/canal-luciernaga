@@ -6,8 +6,7 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 class ClasificacionAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
-    autocomplete_fields = ['categoria']
-
+    
 class TipoAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
 

@@ -34,20 +34,27 @@ class PaisSerializer(serializers.ModelSerializer):
         
 class VideoSerializer(serializers.HyperlinkedModelSerializer):
     tipo = TipoSerializer()
-    categoria = CategoriaSerializer()
+    categoria = CategoriaSerializer(read_only=True, many =True)
     director = DirectorSerializer()
     pais = PaisSerializer()
-
 
     class Meta:
         model = Video
         fields = ('id','tipo', 'categoria', 'nombre', 'sinopsis', 'fecha', 'director','produccion', 'pais','url')
 
+class VideoSerializerModel(serializers.ModelSerializer):
+    tipo = TipoSerializer()
+    
+    class Meta:
+        model = Video
+        fields = ('id','tipo')
+
 class TemporadaSerializer(serializers.ModelSerializer):
-    video = VideoSerializer()
+    info_video = VideoSerializerModel()
+
     class Meta:
         model = Temporada
-        fields = ('id','video','temporada')
+        fields = ('id','info_video','temporada')
 
 class EpisodioSerializer(serializers.HyperlinkedModelSerializer):
     temporada = TemporadaSerializer()

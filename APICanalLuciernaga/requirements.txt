@@ -3,6 +3,7 @@ django-nested-admin==3.2.3
 django-taggit==1.1.0
 djangorestframework==3.9.4
 Pillow==6.1.0
+psycopg2==2.8.3
 python-monkey-business==1.0.0
 pytz==2019.1
 six==1.12.0

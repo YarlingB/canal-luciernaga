@@ -17,8 +17,7 @@ class Categoria(models.Model):
 
 class Clasificacion(models.Model):
     nombre = models.CharField(max_length = 225)
-    categoria = models.ManyToManyField(Categoria)
-
+    
     def __str__(self):
         return self.nombre
     
