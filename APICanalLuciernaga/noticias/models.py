@@ -25,18 +25,15 @@ class Clasificacion(models.Model):
         verbose_name = "Clasificacion"
         verbose_name_plural = "Clasificaciones"
         
-class Tipo(models.Model):
-    nombre = models.CharField(max_length = 225)
 
-    def __str__(self):
-        return self.nombre
-    
-    class Meta:
-        verbose_name = "Tipo"
-        verbose_name_plural = "Tipos"
+TIPO_COMUNICACION_CHOICE = [
+    (1, 'Noticia'),
+    (2, 'Reportaje'),
+]
 
 class Comunicacion(models.Model):
-    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE   )
+    tipo = models.IntegerField(choices = TIPO_COMUNICACION_CHOICE)
+    ultimo_momento = models.BooleanField()
     titulo = models.CharField(max_length = 225)
     clasificacion = models.ForeignKey(Clasificacion, on_delete = models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
@@ -46,7 +43,6 @@ class Comunicacion(models.Model):
     descripcion = models.TextField(max_length = 225)
     pais = models.ForeignKey(Pais, on_delete = 255)
     fuente = models.CharField(max_length = 225)
-    ultimo_momento = models.BooleanField()
     tags = TaggableManager()
     slug = models.SlugField(max_length=250, unique=True, editable= False)
 
@@ -54,8 +50,8 @@ class Comunicacion(models.Model):
         return self.titulo
     
     class Meta:
-        verbose_name = "Comunicacion"
-        verbose_name_plural = "Comunicaciones"
+        verbose_name = "Noticia/Reportaje"
+        verbose_name_plural = "Noticias/Reportajes"
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.titulo)

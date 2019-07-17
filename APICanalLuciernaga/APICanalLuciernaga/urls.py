@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from APICanalLuciernaga import settings
+from django.contrib.flatpages import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,9 +26,9 @@ urlpatterns = [
     path('videoteca/',include('videoteca.urls')),
     path('noticia/',include('noticias.urls')),
     path('biblioteca/',include('biblioteca.urls')),
+    path('programacion/',include('programacion.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('pages/', include('django.contrib.flatpages.urls')),
-
+    path('acerca/', views.flatpage, {'url': '/acerca/'}, name='acerca'),
 
 ]
 

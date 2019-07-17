@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Comunicacion, Tipo, Clasificacion, Categoria
+from .models import Comunicacion, Clasificacion, Categoria
 from lugar.models import Pais
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -12,11 +12,6 @@ class ClasificacionSerializer(serializers.ModelSerializer):
         model = Clasificacion
         fields = ('id', 'nombre')
 
-class TipoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tipo
-        fields = ('id','nombre')
-
 class PaiSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pais
@@ -25,7 +20,6 @@ class PaiSerializer(serializers.ModelSerializer):
 class ComunicacionSerializer(serializers.HyperlinkedModelSerializer):
     categoria = CategoriaSerializer()
     clasificacion = ClasificacionSerializer()
-    tipo = TipoSerializer()
     pais = PaiSerializer()
 
     class Meta:
