@@ -2,16 +2,13 @@
     $(document).ready(function() {
        
          var selectField = $('#id_tipo'),
-        verified_url = $('#id_url'),
-        verified_inline = $('.inline-group');
+        verified_ultimo_momento = $('#id_ultimo_momento');
 
         function Verificar(value) {
-            if(value ==1){
-                verified_url.parent('div').hide();
-                verified_inline.show();
+            if(value == 2){
+                verified_ultimo_momento.parent('div').show();
             }else{
-                verified_url.parent('div').show();
-                verified_inline.hide();
+                verified_ultimo_momento.parent('div').hide();
             }
         }
 

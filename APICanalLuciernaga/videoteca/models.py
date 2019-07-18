@@ -49,7 +49,6 @@ class Video(models.Model):
     pais = models.ForeignKey(Pais, on_delete = models.CASCADE)
     duracion = models.TimeField()
     url = models.URLField(null = True, blank = True)
-    live = models.BooleanField()
     slug = models.SlugField(max_length = 250, unique=True, editable= False)
 
     def __str__(self):
@@ -85,6 +84,7 @@ class Episodio(models.Model):
     link = models.URLField(max_length = 225)
     titulo = models.CharField(max_length = 225)
     sinopsis = models.CharField(max_length = 225)
+    duracion = models.TimeField()
     slug = models.SlugField(max_length=250, unique=True, editable= False)
 
 

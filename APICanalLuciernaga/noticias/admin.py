@@ -13,9 +13,9 @@ class PaisAdmin(admin.ModelAdmin):
 
 class ComunicacionAdmin(admin.ModelAdmin):
     autocomplete_fields = ['clasificacion', 'categoria','pais' ]
-
+    
     class Media:
-        js = ('js/noticia/ocultar_check.js', )
+        js = ('js/noticia/check.js',)
 
 # Register your models here.
 admin.site.register(Categoria, CategoriaAdmin)

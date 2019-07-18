@@ -17,16 +17,6 @@ class DirectorSerializer(serializers.ModelSerializer):
         model = Director
         fields = ('id','nombre')
 
-class TemporadaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Temporada
-        fields = ('id','nombre')
-
-class EpisodioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Episodio 
-        fields = ('id','nombre')
-
 class PaisSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pais
@@ -40,7 +30,7 @@ class VideoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Video
-        fields = ('id','tipo', 'categoria', 'nombre', 'sinopsis', 'fecha', 'director','produccion', 'pais','url')
+        fields = ('id','tipo', 'categoria', 'nombre', 'sinopsis', 'fecha', 'director','produccion', 'pais','duracion','url')
 
 class VideoSerializerModel(serializers.ModelSerializer):
     tipo = TipoSerializer()
@@ -61,4 +51,4 @@ class EpisodioSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = Episodio
-        fields = ('id','temporada','link','titulo','sinopsis')
+        fields = ('id','temporada','link','titulo','sinopsis', 'duracion')
