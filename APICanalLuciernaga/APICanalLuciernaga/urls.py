@@ -19,14 +19,26 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from APICanalLuciernaga import settings
 from django.contrib.flatpages import views
+from rest_framework import routers
+from biblioteca.views import BibliotecaViewSet
+from programacion.views import HoraProgramacionViewSet
+from noticias.views import ComunicacionViewSet
+from videoteca.views import VideoViewSet, EpisodioViewSet
+
+
+
+router = routers.DefaultRouter()
+router.register(r'biblioteca', BibliotecaViewSet)
+router.register(r'programacion', HoraProgramacionViewSet)
+router.register(r'noticia', ComunicacionViewSet)
+router.register(r'videoteca', VideoViewSet)
+router.register(r'Episodio', EpisodioViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nested_admin/', include('nested_admin.urls')),
-    path('videoteca/',include('videoteca.urls')),
-    path('noticia/',include('noticias.urls')),
-    path('biblioteca/',include('biblioteca.urls')),
-    path('programacion/',include('programacion.urls')),
+    path('api/v1/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('acerca/', views.flatpage, {'url': '/acerca/'}, name='acerca'),
 
