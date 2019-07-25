@@ -1,21 +1,18 @@
 import {Categoria} from "./Categoria";
-import {TipoVideo} from "./TipoVideo";
-import { Pais } from "./Pais";
-import { Director } from './Director';
 
 export class VideoTeca{
 
-    public VideoTeca: number;
-    public Tipo: TipoVideo;
-    public Categorias: Categoria[];
-    public Nombre: string;
-    public Sinopsis: string;
-    public Fecha: Date;
-    public Director: Director;
-    public Produccion: string; 
-    public Pais: Pais;
-    public Duracion: number;
-    public URL: string;
+    public id: number;
+    public tipo: string;
+    public categoria: Categoria[];
+    public nombre: string;
+    public sinopsis: string;
+    public fecha: Date;
+    public director: string;
+    public produccion: string; 
+    public pais: string;
+    public duracion: number;
+    public url: string;
 
     constructor(){}
 }

@@ -1,7 +1,7 @@
 export class Pais{
 
-    public IdPais: number;
-    public Nombre: string;
+    public id: number;
+    public pais: string;
 
     constructor(){}
 }

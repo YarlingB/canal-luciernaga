@@ -1,12 +1,10 @@
-import { Categoria } from './Categoria';
-
 export class Biblioteca{
 
-    public IdBiblioteca: number;
-    public Nombre: string;
-    public Categoria: Categoria;
-    public Foto: string;
-    public Archivo: string;
+    public id: number;
+    public nombre: string;
+    public categoria: string;
+    public foto: string;
+    public archivo: string;
 
     constructor(){}
 }

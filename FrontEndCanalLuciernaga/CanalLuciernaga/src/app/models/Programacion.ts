@@ -2,11 +2,11 @@ import { HoraProgramacion } from './HoraProgramacion'
 
 export class Programacion{
 
-    public IdProgramacion: number;
-    public Programaciones: Programacion[];
-    public Titulo: string;
-    public HoraInicio: number;
-    public HoraFin: number; 
+    public id: number;
+    public programacion: Programacion[];
+    public titulo: string;
+    public hora_inicio: number;
+    public hora_fin: number; 
 
     constructor(){}
 }

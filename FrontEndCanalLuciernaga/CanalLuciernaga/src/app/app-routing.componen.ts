@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {VideoComponent} from './video/video.component';
-import {NotFound404Component} from './not-found404/not-found404.component'
+import {VideoComponent} from './components/video/video.component';
+import {NotFound404Component} from './components/not-found404/not-found404.component';
 
 const routes: Routes = [
     {

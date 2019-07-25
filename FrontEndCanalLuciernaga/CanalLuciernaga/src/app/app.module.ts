@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { VideoComponent } from './video/video.component';
+import { VideoComponent } from './components/video/video.component';
 import { AppRoutingModule } from './app-routing.componen';
-import { NotFound404Component } from './not-found404/not-found404.component'
+import { NotFound404Component } from './components/not-found404/not-found404.component';
+import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NotFound404Component } from './not-found404/not-found404.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,18 +33,20 @@ INSTALLED_APPS = [
     'nested_admin',
     'taggit',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware' , 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-]
+    ]
 
 ROOT_URLCONF = 'APICanalLuciernaga.urls'
 
@@ -125,3 +127,11 @@ REST_FRAMEWORK = {
 
 # SITE  
 SITE_ID = 1
+
+#Permisos de la API
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+)

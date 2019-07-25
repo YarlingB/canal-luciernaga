@@ -1,7 +1,7 @@
 export class Clasificacion{
 
-    public IdClasificacion: number;
-    public Nombre: string;
+    public id: number;
+    public nombre: string;
 
     constructor(){}
 }

@@ -1,7 +1,7 @@
 export class TipoVideo{
     
-    public IdTipo: number;
-    public Nombre: string;
+    public id: number;
+    public nombre: string;
 
     constructor(){}
 }

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Video, Tipo, Categoria, Director,Temporada,Episodio
+from .admin import VideoAdmin
 from lugar.models import Pais
 
 class TipoSerializer(serializers.ModelSerializer):
