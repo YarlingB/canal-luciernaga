@@ -1,7 +1,8 @@
 export class Director{
 
-    public IdDirector: number;
-    public Nombre: string;
-
+    public id: number;
+    public nombre: string;
+    public fecha_nacimiento: Date;
+    
     constructor(){}
 }

@@ -1,8 +1,8 @@
 export class HoraProgramacion{
 
-    public IdHoraProgramacion: number;
-    public Titulo: string;
-    public Link: string;
+    public id: number;
+    public titulo: string;
+    public link: string;
 
     constructor(){}
 }

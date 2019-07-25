@@ -1,7 +1,7 @@
 export class Categoria{
 
-    public IdCategoria: number;
-    public Nombre: string;
+    public id: number;
+    public nombre: string;
     
     constructor(){
         
