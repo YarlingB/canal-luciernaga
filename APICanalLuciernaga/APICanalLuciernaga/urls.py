@@ -20,19 +20,25 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from APICanalLuciernaga import settings
 from django.contrib.flatpages import views
 from rest_framework import routers
-from biblioteca.views import BibliotecaViewSet
+from biblioteca.views import BibliotecaViewSet, CategoriaBibliotecaViewSet
 from programacion.views import HoraProgramacionViewSet
-from noticias.views import ComunicacionViewSet
-from videoteca.views import VideoViewSet, EpisodioViewSet
-
-
+from noticias.views import ComunicacionViewSet, CategoriaNoticiaViewSet, ClasificacionNoticiaViewSet
+from videoteca.views import VideoViewSet, EpisodioViewSet,TipoVideoTecaViewSet, CategoriaVideoTecaViewSet
+from lugar.views import PaisViewSet
 
 router = routers.DefaultRouter()
-router.register(r'biblioteca', BibliotecaViewSet)
-router.register(r'programacion', HoraProgramacionViewSet)
-router.register(r'noticia', ComunicacionViewSet)
-router.register(r'videoteca', VideoViewSet)
-router.register(r'Episodio', EpisodioViewSet)
+router.register('biblioteca', BibliotecaViewSet)
+router.register('programacion', HoraProgramacionViewSet)
+router.register('noticia', ComunicacionViewSet)
+router.register('videoteca', VideoViewSet)
+router.register('episodio', EpisodioViewSet)
+router.register('categoria-noticia', CategoriaNoticiaViewSet)
+router.register('clasficacion-noticia', ClasificacionNoticiaViewSet)
+router.register('categoria-video', CategoriaVideoTecaViewSet)
+router.register('tipo-videoteca', TipoVideoTecaViewSet)
+router.register('pais', PaisViewSet)
+router.register('categoria-biblioteca', CategoriaBibliotecaViewSet)
+
 
 
 urlpatterns = [
