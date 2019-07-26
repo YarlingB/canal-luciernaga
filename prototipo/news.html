@@ -47,8 +47,8 @@
 
 				<div class="container">
 					<div class="navbar-header">
-						<a href="index.html" class="logo" title="Movie star landing page">
-							<img src="images/logo-1.png" alt="Movie star HTML Template">
+						<a href="index.html" class="logo" title="Craft beer landing page">
+							<img src="images/logo-1.png" alt="Craft Beer HTML Template">
 						</a>
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
@@ -59,18 +59,24 @@
 					</div>  
 					<div class="navbar-collapse collapse">
 						<ul id="menu-primary" class="nav navbar-nav">
-							<li>
+							<li class="active dropdown">
 								<a href="index.html">Inicio</a>
+								<ul class="dropdown-menu">
+									<li><a href="">Peliculas</a></li>
+									<li><a href="">series</a></li>
+									<li><a href="">Documentales</a></li>
+								</ul>
 							</li>
 							<li>
 								<a href="whats-on.html"><i class="material-icons" style="font-size: 10px; color: #FF0000">lens</i> En Directo</a>
 							</li>
-							<li class="dropdown active">
-								<a href="news.html">Actualidad</a>
+							<li class="dropdown">
+								<a href="news.html">Noticias</a>
 								<ul class="dropdown-menu">
-									<li><a href="news-single.html">News single</a></li>
+									<li><a href="news-single.html">Reportaje</a></li>
 								</ul>
 							</li>
+							
 							<li>
 								<a href="contact.html">Conocenos</a>
 							</li>
@@ -83,23 +89,92 @@
 			</div>
 
 			<!-- Hero -->
-			<div id="content_hero" style="background-image: url(images/banners/newsbanner.jpg)">
+			<div id="hero" class="carousel slide carousel-fade" data-ride="carousel">
 				
-				<img src="images/scroll-arrow.svg" alt="Scroll down" class="scroll" />
+				<a href="#afterHeader" class="anchor">
+					<img src="images/scroll-arrow.svg" alt="Scroll down" class="scroll" />
+				</a>
 
-				<!-- Content -->
-				<div class="container">
-					<div class="row blurb scrollme animateme " data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
-						<div class="col-md-9">
-							<span class="title"></span>
-							<h1>Noticias</h1>
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Inicio</a></li>
-									<li class="breadcrumb-item active white-color" aria-current="page">Noticias</li>
-								</ol>
+				<!-- Indicators -->
+				<div class="container ">	
+					<ol class="carousel-indicators">
+						<li data-target="#hero" data-slide-to="0" class="active"></li>
+						<li data-target="#hero" data-slide-to="1"></li>
+						<li data-target="#hero" data-slide-to="2"></li>
+					</ol>
+				</div>
+				
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
 
+					<div class="item active" style="background-image: url(images/banners/news-banner.jpeg)">
+						<!-- Content -->
+						<div class="container">
+							<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
+								<div class="col-md-9 main-items">
+									
+									<h3 class="no-underline white-color bann_name">Mujeres de Ometepe validan la estrategia de comunicación para sensibilizar sobre violencia de género basada en la telenovela Loma Verde</h3>
+									 <!--<p>A pesar de que Nicaragua y la región centroamericana en general solo provocan el 0.5% de las emisiones globales de los llamados gases de efecto invernadero, se encuentran entre las regiones más vulnerables del mundo a los efectos del cambio climático. De no tomarse medidas que nos preparen para la adaptación a este cambio, podría llegar a sufrir escasez crónica de agua y alimentos</p> -->
+
+									<div class="buttons top_padd_20 ">
+										<!-- <span class="white-color">
+											Medio ambiente
+										</span> -->
+										<a class="venobox btn btn-ghost">
+											
+											<span>Medio ambiente</span>
+										</a>
+										
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
+
+					<div class="item" style="background-image: url(http://via.placeholder.com/1140x665)">
+						<!-- Content -->
+						<div class="container">
+							<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
+								<div class="col-md-9">
+									<span class="title">Action, Adventure, Fantasy</span>
+									<h1>End of the World: Part II</h1>
+									<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum.</p>
+									<div class="buttons">
+										<span class="certificate">
+											15
+										</span>
+										<a href="https://youtu.be/ScMzIvxBSi4 data-vbtype="video" class="venobox btn btn-default">
+											<i class="material-icons">play_arrow</i>
+											<span>Play trailer</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="item" style="background-image: url(http://via.placeholder.com/1140x665)">
+						<!-- Content -->
+						<div class="container">
+							<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
+								<div class="col-md-9">
+									<span class="title">Action, Adventure, Fantasy</span>
+									<h1>End of the World: Part II</h1>
+									<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum.</p>
+									<div class="buttons">
+										<span class="certificate">
+											PG
+										</span>
+										<a href="https://youtu.be/ScMzIvxBSi4 data-vbtype="video" class="venobox btn btn-default">
+											<i class="material-icons">play_arrow</i>
+											<span>Play trailer</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 			</div>

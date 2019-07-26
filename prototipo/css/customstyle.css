@@ -14,6 +14,10 @@
 	padding-top: 30px !important;
 }
 
+.top_padd_20{
+	padding-top: 20px !important;
+}
+
 .bottom_padd_50{
 	padding-bottom: 50px;
 }
@@ -205,26 +209,6 @@ span.details {
 	padding-bottom: 25px;
 }
 
-/* index video detail */
-
-
-/*#activeVideo .show-selected{
-	display: block;
-}
-
-#activeVideo .show-selected .detail_chosen{
-	border-width: 3px;
-	border-style: solid;
-	border-image: 
-	linear-gradient(
-	  to bottom, 
-	  #e2520000,
-	  rgba(255,98,7,0.9),
-	  rgba(0, 0, 0, 0)
-	) 1 100%;
-	position: relative;
-}*/
-
 .detail_chosen{
 	border-width: 3px;
 	border-style: solid;
@@ -237,3 +221,20 @@ span.details {
 	) 1 100%;
 	position: relative;
 }
+
+h3.bann_name{
+	display: block;
+	max-width: 600px;
+
+}
+
+.close_selected{
+    display: block;
+    width: 50px !important;
+    height: 50px !important;
+    text-align: center;
+    border: solid 2px #d8d8d8;
+    border-radius: 50%;
+    float: right !important;
+}
+

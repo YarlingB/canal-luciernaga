@@ -415,7 +415,7 @@ hr.space-40 {
     background-image:    -moz-linear-gradient(top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
     background-image: -webkit-linear-gradient(top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
     background-image:     -ms-linear-gradient(top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-    background-image:         linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    background-image:         linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 150%);
 }
 
 #hero .container {
@@ -2278,7 +2278,7 @@ ul.movie-info li i {
 .icon-row {
     display: table;
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .icon-row .col {
