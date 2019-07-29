@@ -43,6 +43,8 @@ jQuery(function ($) {
 		return false;
 	});
 
+	
+
 	// Slick carousel
 	$(window).on('load resize scroll', function(){  
 		
