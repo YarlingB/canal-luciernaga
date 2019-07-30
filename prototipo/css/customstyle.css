@@ -237,4 +237,19 @@ h3.bann_name{
     border-radius: 50%;
     float: right !important;
 }
+.custom-carousel{
+	width:90%;
+	margin:0px auto;
+}
+
+.c-slick-slide{
+  margin:10px;
+}
+.c-slick-slide img{
+  width:100%;
+  border-radius: 10px;
+  display: block;
+}
+
+
 

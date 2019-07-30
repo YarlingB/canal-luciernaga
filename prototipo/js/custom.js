@@ -42,6 +42,7 @@ jQuery(function ($) {
 		$('.social-share .share a').fadeIn('slow');
 		return false;
 	});
+	
 
 	
 
