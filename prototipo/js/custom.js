@@ -239,6 +239,34 @@ jQuery(function ($) {
 			  ]
 		});
 
+		$('#similar_video').not('.slick-initialized').slick({
+			autoplay: false,
+			slidesToShow: 6,
+			centerPadding: '60px',
+			prevArrow: '<i class="material-icons left">keyboard_arrow_left</i>',
+			nextArrow: '<i class="material-icons right">keyboard_arrow_right</i>',
+			responsive: [
+			    {
+			      breakpoint: 1024,
+			      settings: {
+			        slidesToShow: 4
+			      }
+			    },
+			    {
+			      breakpoint: 768,
+			      settings: {
+			        slidesToShow: 3
+			      }
+			    },
+			    {
+			      breakpoint: 480,
+			      settings: {
+			        slidesToShow: 2
+			      }
+			    }
+			  ]
+		});
+
 		$('.gallery').not('.slick-initialized').slick({
 			autoplay: false,
 			slidesToShow: 6,
@@ -705,6 +733,17 @@ jQuery(function ($) {
 	jQuery('#comingSoon div').first().css('opacity', '1').siblings().css('opacity', '.35');
 
 	jQuery('#comingSoon div').click(function() {
+		var currentClass = $(this).data("dynamicclass");
+	    $("div." + currentClass).css({ opacity: '1', height: 'auto', paddingBottom: '60px' }).siblings('.single-slide').css({ opacity: '0', height: '0', paddingBottom: '0' });
+	    $(this).css('opacity', '1').siblings().css('opacity', '.35');
+	    return false;
+	});
+
+	// Similar videos slide
+	jQuery('.single-slide').first().css({ opacity: '1', height: 'auto', paddingBottom: '60px' }).siblings('.single-slide').css({ opacity: '0', height: '0', paddingBottom: '0' });
+	jQuery('#similar_video div').first().css('opacity', '1').siblings().css('opacity', '.35');
+
+	jQuery('#similar_video div').click(function() {
 		var currentClass = $(this).data("dynamicclass");
 	    $("div." + currentClass).css({ opacity: '1', height: 'auto', paddingBottom: '60px' }).siblings('.single-slide').css({ opacity: '0', height: '0', paddingBottom: '0' });
 	    $(this).css('opacity', '1').siblings().css('opacity', '.35');

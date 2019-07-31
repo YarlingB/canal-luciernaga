@@ -71,11 +71,10 @@
 									<i class="material-icons" style="font-size: 10px; color: #FF0000">
 										<div class="ball">
 										<span></span>
-										<span></span>
-										<span></span>
-										<span></span>
 										</div>
-								</i></a><a href="" style="padding-left: 5px;">En Directo</a>
+									</i>
+								</a>
+								<a href="" style="padding-left: 5px;">En Directo</a>
 							</li>
 							<li class="dropdown">
 								<a href="news.html">Noticias</a>
@@ -360,7 +359,7 @@
 								<span class="title genrecolor"></span>
 								<h4 class="no-underline white-color">
 									<a id="expand-icon" href="" class="hidden">
-										<i class="material-icons">
+										<i class="material-icons" style="font-size: 32px;">
 											expand_more
 										</i>
 									</a>
@@ -447,12 +446,20 @@
 				</div>
 			</div>
 
-			<!-- Section -->
+
 			<section id="activeVideo" class="dark linear-bg">
+				<div class=" icon-row " style="position: relative; margin-bottom: 10px; z-index: 1; float: right;">
+					<div class="col" style="padding-right: 0;">
+						<span class=" close_selected">
+							<a href=""><i class="material-icons">close</i></a>
+							
+						</span>
+					</div>
+
+				</div>
 				<div class="container section remove-bottom-padding">
 					<div class="row comingSoon-slides">
-						<div class="col-sm-12">
-
+						<div class="col-sm-12">		
 							<div class="panel with-nav-tabs panel-default cpanel">
 
 								<div class="panel-body">
@@ -490,6 +497,7 @@
 														<img src="images/loma.jpg" alt="" />
 													</a>
 												</div>
+
 											</div>
 
 										</div>
@@ -504,8 +512,9 @@
 													<div>
 														<div class="d-inline-block">
 															<div class="dropdown show">
-																<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<a class="btn btn-secondary dropdown-toggle light_hover" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																	Temporada
+																	<i class="material-icons">arrow_drop_down</i>
 																</a>
 
 																<div class="dropdown-menu" aria-labelledby="dropdownSeason">
@@ -519,8 +528,8 @@
 														<div class="d-inline-block">
 
 															<div class="dropdown show">
-																<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																	Episodio
+																<a class="btn btn-secondary dropdown-toggle light_hover" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																	Episodio <i class="material-icons">arrow_drop_down</i>
 																</a>
 
 																<div class="dropdown-menu" aria-labelledby="dropdownSeason">
@@ -596,8 +605,61 @@
 										<!--tab de similares-->
 										<div class="tab-pane fade" id="tab3default">
 											<div class="row">
+												<div class="bg linear-bg" style="background: black;"></div>
 
 												<div class="col-sm-12 col-xs-12 slide content">
+													<div class="slick-carousel" id="similar_video">
+														<div>
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">Deepwater horizon</h5>
+															<span class="release-date">07 September, 2017</span>
+														</div>
+														<div data-dynamicclass="slideTwo">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">Too fast</h5>
+															<span class="release-date">15 April, 2017</span>
+														</div>
+														<div data-dynamicclass="slideThree">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">The Hangover: Part III</h5>
+															<span class="release-date">30 September, 2017</span>
+														</div>
+														<div data-dynamicclass="slideFour">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">Transformers: Age of Extinction</h5>
+															<span class="release-date">15 April, 2018</span>
+														</div>
+														<div data-dynamicclass="slideFive">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">End of an empire</h5>
+															<span class="release-date">19 October, 2018</span>
+														</div>
+														<div data-dynamicclass="slideSix">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">Hanibal Rising</h5>
+															<span class="release-date">21 November, 2018</span>
+														</div>
+														<div data-dynamicclass="slideSeven">
+															<a href="#">
+																<img src="http://via.placeholder.com/265x340" alt="">
+															</a>
+															<h5 class="left no-underline">Locked out</h5>
+															<span class="release-date">01 December, 2018</span>
+														</div>
+													</div>
+
 													
 												</div>
 											</div>
@@ -882,9 +944,8 @@
 			</div>
 			<script type="text/javascript">
 				function showmore(){
-					alert('nlakvnk');
-					document.getElementById('video_name').addClass('hidden');
-					document.getElementById('video_name').removeClass('hidden');
+					$('#video_name').addClass('hidden');
+					$('#expand-icon').removeClass('hidden');
 				}
 			</script>
 
