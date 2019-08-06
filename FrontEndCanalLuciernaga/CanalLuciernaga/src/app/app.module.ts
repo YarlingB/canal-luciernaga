@@ -7,12 +7,20 @@ import { AppRoutingModule } from './app-routing.componen';
 import { NotFound404Component } from './components/not-found404/not-found404.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './components/menu/menu.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { AlertNewsComponent } from './components/alert-news/alert-news.component';
+import { ListaReproduccionComponent } from './components/lista-reproduccion/lista-reproduccion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoComponent,
-    NotFound404Component
+    NotFound404Component,
+    MenuComponent,
+    BannerComponent,
+    AlertNewsComponent,
+    ListaReproduccionComponent
   ],
   imports: [
     BrowserModule,
