@@ -7,3 +7,43 @@
     </li>
 </ul>
 
+<div class="container section">
+	<div class="row">
+		<div class="col-sm-12" id="afterHeader">
+			<h2>Nuevo en Luciernaga</h2>
+
+			<div class="slick-carousel" id="newIn">
+				
+
+				<div *ngFor="let video of videoteca" class="movie-slide">
+					<div class="movie-poster">
+						<aside>
+							<div>
+								<a href="https://youtu.be/ScMzIvxBSi4 data-vbtype="video class="venobox play">
+									<i class="material-icons">play_arrow</i>
+								</a>
+								<div style="padding-top: 15px;">
+									<span class="date">Ficcion</span>
+
+									<span class="date"><strong>{{video.nombre}}</strong> </span>											
+									<span>
+										<i class="material-icons expand-more">
+											expand_more
+										</i>
+									</span>
+								</div>
+							</div>
+						</aside>
+						<a href="#">
+							<img src="assets/images/loma-verde.jpg" />
+						</a>
+					</div>
+					<!--<span class="title genrecolor">Ficcion</span> -->
+					<h4 class="no-underline white-color">{{video.nombre}}</h4> 
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
