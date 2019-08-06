@@ -35,10 +35,9 @@
               "src/assets/js/headhesive.min.js",
               "src/assets/js/matchHeight.min.js",
               "src/assets/js/modernizr.custom.js",
-              "src/assets/js/slick.min.js",              
+             
               "src/assets/js/venobox.min.js",
-              "src/assets/js/custom.js",
-              "src/assets/js/prueba.js",
+              "src/assets/js/custom.js"
               
 
               
