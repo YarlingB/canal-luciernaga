@@ -11,6 +11,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AlertNewsComponent } from './components/alert-news/alert-news.component';
 import { ListaReproduccionComponent } from './components/lista-reproduccion/lista-reproduccion.component';
+import { FooterComponent } from './footer/footer.component';
+// Import library
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { OwlModule } from 'ngx-owl-carousel';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +25,17 @@ import { ListaReproduccionComponent } from './components/lista-reproduccion/list
     MenuComponent,
     BannerComponent,
     AlertNewsComponent,
-    ListaReproduccionComponent
+    ListaReproduccionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
+    //Specify library as an import
+    SlickCarouselModule,
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,19 +25,20 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css",
+              "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
               "src/styles.css"
               
             ],
             "scripts": [
               "src/assets/js/jquery-2.2.4.min.js",
-              "src/assets/js/jquery-ui.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/assets/js/headhesive.min.js",
-              "src/assets/js/matchHeight.min.js",
-              "src/assets/js/modernizr.custom.js",
-             
-              "src/assets/js/venobox.min.js",
-              "src/assets/js/custom.js"
+              "./node_modules/owl.carousel/dist/owl.carousel.js",
+              "node_modules/slick-carousel/slick/slick.js"
+
+     
               
 
               
