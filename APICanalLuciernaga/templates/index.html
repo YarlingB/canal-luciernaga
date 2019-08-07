@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bg-bnews" style="margin-top: 20px; background-color: #2b2b2b; border-radius: 15px;">
+	<div class="row bnews-padding">
+		<div>
+			<span class="badge badge-danger bnews-title">Última hora:</span>
+			<div class="bnews-slider nobottommargin">
+				<div class="slide flex-active-slide" style="width: 970px; margin-right: 0px; float: left; display: block;">
+
+					<marquee scrollamount='7'>
+						<div class="d-inline-block rigt_mar_200 white-color">
+							<p> Este texto se mueve de derecha a izquierda</p>
+						</div>
+					</marquee>
+					
+				</div>
+			</div>
+
+			
+		</div>
+		
+	</div>
+</div>
+	
+{% endblock content %}

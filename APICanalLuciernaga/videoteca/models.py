@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from lugar.models import Pais
 
-# Create your models here.
+#Create your models here.
 
 class Tipo(models.Model):
     nombre = models.CharField(max_length = 255)
@@ -12,8 +12,7 @@ class Tipo(models.Model):
 
     def __str__(self):
         return self.nombre
-    
-   
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length = 255)
@@ -27,7 +26,7 @@ class Categoria(models.Model):
 
 class Director(models.Model):
     nombre = models.CharField(max_length = 255)
-    fecha_nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField('Fecha de nacimiento')
 
     def __str__(self):
         return self.nombre
@@ -39,15 +38,15 @@ class Director(models.Model):
 
 
 class Video(models.Model):
-    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
-    categoria = models.ManyToManyField(Categoria)
-    nombre = models.CharField(max_length = 225)
-    sinopsis = models.TextField()
-    fecha = models.DateField() 
-    director = models.ForeignKey(Director, on_delete = models.CASCADE)
-    produccion = models.CharField(max_length = 255)
-    pais = models.ForeignKey(Pais, on_delete = models.CASCADE)
-    duracion = models.TimeField()
+    tipo = models.ForeignKey(Tipo,on_delete=models.CASCADE)
+    categoria = models.ManyToManyField(Categoria,verbose_name='Categoría')
+    nombre = models.CharField('Nombre',max_length = 225)
+    sinopsis = models.TextField('Sinopsis')
+    fecha = models.DateField('Fecha') 
+    director = models.ForeignKey(Director, on_delete = models.CASCADE,verbose_name='Director')
+    produccion = models.CharField('Producción',max_length = 255)
+    pais = models.ForeignKey(Pais, on_delete = models.CASCADE,verbose_name='País')
+    duracion = models.TimeField('Duración')
     url = models.URLField(null = True, blank = True)
     slug = models.SlugField(max_length = 250, unique=True, editable= False)
 
@@ -82,9 +81,9 @@ class Temporada(models.Model):
 class Episodio(models.Model):
     temporada = models.ForeignKey(Temporada, related_name = 'episodio_temporada', on_delete = models.CASCADE)
     link = models.URLField(max_length = 225)
-    titulo = models.CharField(max_length = 225)
-    sinopsis = models.CharField(max_length = 225)
-    duracion = models.TimeField()
+    titulo = models.CharField('Título',max_length = 225)
+    sinopsis = models.CharField('Sinopsis',max_length = 225)
+    duracion = models.TimeField('Duración')
     slug = models.SlugField(max_length=250, unique=True, editable= False)
 
 

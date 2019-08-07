@@ -5,7 +5,7 @@
         verified_ultimo_momento = $('#id_ultimo_momento');
 
         function Verificar(value) {
-            if(value == 2){
+            if(value == 1){
                 verified_ultimo_momento.parent('div').show();
             }else{
                 verified_ultimo_momento.parent('div').hide();

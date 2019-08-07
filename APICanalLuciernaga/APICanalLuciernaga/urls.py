@@ -47,6 +47,7 @@ urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('acerca/', views.flatpage, {'url': '/acerca/'}, name='acerca'),
+    path('',include('noticias.urls')),
 
 ]
 

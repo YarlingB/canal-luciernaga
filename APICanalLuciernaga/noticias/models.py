@@ -33,14 +33,14 @@ TIPO_COMUNICACION_CHOICE = [
 
 class Comunicacion(models.Model):
     tipo = models.IntegerField(choices = TIPO_COMUNICACION_CHOICE)
-    ultimo_momento = models.BooleanField()
+    ultimo_momento = models.BooleanField(default=False)
     titulo = models.CharField(max_length = 225)
     clasificacion = models.ForeignKey(Clasificacion, on_delete = models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     autor = models.CharField(max_length = 255)
     fecha = models.DateField()
     foto = models.ImageField(upload_to='fotos/noticias')
-    descripcion = models.TextField(max_length = 225)
+    descripcion = models.TextField()
     pais = models.ForeignKey(Pais, on_delete = 255)
     fuente = models.CharField(max_length = 225)
     tags = TaggableManager()
