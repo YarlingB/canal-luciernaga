@@ -1104,7 +1104,7 @@ a.arrow-button:hover {
             transform: skewX(30deg);
 
     opacity: .9;
-    background-image: linear-gradient(to bottom, #faa82f, #e76115);
+    /*background-image: linear-gradient(to bottom, #faa82f, #e76115);*/
 }
 
 .slick-slide .movie-poster:hover:before {

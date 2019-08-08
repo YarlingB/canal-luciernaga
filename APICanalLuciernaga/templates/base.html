@@ -210,9 +210,10 @@
 
 
 	<script type="text/javascript">
-	function showmore(){
-		$('#video_name').addClass('hidden');
-		$('#expand-icon').removeClass('hidden');
+	function showmore(idvid){
+		alert(idvid);
+		$('#video_name_'+idvid).addClass('hidden');
+		$('#expand-icon_'+idvid).removeClass('hidden');
 	}
 	</script>
 

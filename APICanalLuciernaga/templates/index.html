@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- 	Breaking news	-->
 <div class="bg-bnews" style="margin-top: 20px; background-color: #2b2b2b; border-radius: 15px;">
 	<div class="row bnews-padding">
 		<div>
@@ -12,17 +13,10 @@
 					<marquee scrollamount='7'>
 						{% for news in highlight_news %}
 						<div class="d-inline-block rigt_mar_200 white-color">
-							<p>{{news.pais}}:{{news.descripcion}}</p>
+							<a class="white-color">{{news.pais}}: {{news.titulo}}</a>
 						</div>
-						{% endfor %}
-						<div class="d-inline-block rigt_mar_200 white-color">
-							<p> Este texto se mueve de derecha a izquierdaEste texto se mueve de derecha a izquierdaEste texto se mueve de derecha a izquierda</p>
-						</div>
-						<div class="d-inline-block rigt_mar_200 white-color">
-							<p> Este texto se mueve de derecha a izquierda</p>
-						</div>
+						{% endfor %}					
 					</marquee>
-					
 				</div>
 			</div>
 
@@ -31,5 +25,107 @@
 		
 	</div>
 </div>
-	
+
+<!-- 	Nuevo en	-->
+<div class="container section">
+	<div class="row">
+		<div class="col-sm-12" id="afterHeader">
+			<h2>Nuevo en Luciernaga</h2>
+
+			<div class="slick-carousel" id="newIn">
+				{% for video in latest_video %}
+				<div class="movie-slide">
+					<div class="movie-poster">
+						<aside>
+							<div>
+								<a href="" class="venobox play">
+									<i class="material-icons">play_arrow</i>
+								</a>
+								<div style="padding-top: 15px;">
+									<span class="date"><strong>{{video.nombre}}</strong> </span>
+									<span class="date">
+										{% for cat in video.categoria.all|slice:"3" %}
+										<i class="material-icons" style="
+										font-size: 8px;
+										">
+											fiber_manual_record
+										</i>{{cat}}
+										{% endfor %}										
+									</span>					
+									<span>
+										<i class="material-icons expand-more">
+											expand_more
+										</i>
+									</span>
+								</div>
+							</div>
+						</aside>
+						<a href="#">
+							<img src="static/img/caminos_del_silencio.jpg" />
+						</a>
+					</div>
+					<h4 class="no-underline white-color"><a href="white-color">{{video.nombre}}</a></h4> 
+				</div>
+					
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  Series	-->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>Series</h2>
+			<div class="slick-carousel" id="Series">
+				{% for serie in series_list %}
+				<div class="movie-slide">
+					<div class="movie-poster">
+						<aside>
+							<div>
+								<a href="" class="venobox play">
+									<i class="material-icons">play_arrow</i>
+								</a>
+								<div style="padding-top: 15px;">
+									<span class="date"><strong>{{serie.nombre}}</strong> </span>
+									<span class="date">
+										{% for cat in serie.categoria.all|slice:"3" %}
+										<i class="material-icons" style="
+										font-size: 8px;
+										">
+											fiber_manual_record
+										</i>{{cat}}
+										{% endfor %}										
+									</span>					
+									<p id="expand-action" onclick="showmore({{serie.id}})">
+										<i class="material-icons expand-more">
+											expand_more
+										</i>
+									</p>
+								</div>
+							</div>
+						</aside>
+						<a href="#">
+							<img src="static/img/caminos_del_silencio.jpg" class="rounded">
+						</a>
+					</div>
+					<span class="title genrecolor"></span>
+					<h4 class="no-underline white-color">
+						<a id="expand-icon_{{serie.id}}" href="" class="hidden">
+							<i class="material-icons" style="font-size: 32px;">
+								expand_more
+							</i>
+						</a>
+						<p id="video_name_{{serie.id}}">{{serie}}</p>
+					</h4> 
+				</div>
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
 {% endblock content %}

@@ -84,8 +84,6 @@ class Episodio(models.Model):
     titulo = models.CharField('Título',max_length = 225)
     sinopsis = models.TextField('Sinopsis',max_length=200)
     duracion = models.CharField('Duración',max_length=20)
-    slug = models.SlugField(max_length=250, unique=True, editable= False)
-
 
     def __str__(self):
         return self.titulo
@@ -94,9 +92,6 @@ class Episodio(models.Model):
         verbose_name = "Episodio"
         verbose_name_plural = "Episodios"
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.titulo)
-        super(Episodio, self).save(*args, **kwargs)
 
 
 
