@@ -10,6 +10,14 @@
 				<div class="slide flex-active-slide" style="width: 970px; margin-right: 0px; float: left; display: block;">
 
 					<marquee scrollamount='7'>
+						{% for news in highlight_news %}
+						<div class="d-inline-block rigt_mar_200 white-color">
+							<p>{{news.pais}}:{{news.descripcion}}</p>
+						</div>
+						{% endfor %}
+						<div class="d-inline-block rigt_mar_200 white-color">
+							<p> Este texto se mueve de derecha a izquierdaEste texto se mueve de derecha a izquierdaEste texto se mueve de derecha a izquierda</p>
+						</div>
 						<div class="d-inline-block rigt_mar_200 white-color">
 							<p> Este texto se mueve de derecha a izquierda</p>
 						</div>

@@ -1,12 +1,13 @@
 (function($){
     $(document).ready(function() {
-       
-         var selectField = $('#id_tipo'),
+        $('#change_id_tipo').hide();
+
+        var selectField = $('#id_tipo'),
         verified_url = $('#id_url'),
         verified_inline = $('.inline-group');
 
         function Verificar(value) {
-            if(value ==1){
+            if(value.toUpperCase() == 'SERIE' || value.toUpperCase()=='SERIES'){
                 verified_url.parent('div').hide();
                 verified_inline.show();
             }else{
@@ -15,10 +16,12 @@
             }
         }
 
-        Verificar(selectField.val());
+        // Verificar(selectField.val());
 
         selectField.change(function() {
-            Verificar($(this).val());
+            //Verificar($(this).val());
+            var charval = $('#id_tipo option:selected').text();
+            Verificar(charval);
         }); 
     
     });

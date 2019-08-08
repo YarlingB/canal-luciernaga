@@ -46,7 +46,7 @@ class Video(models.Model):
     director = models.ForeignKey(Director, on_delete = models.CASCADE,verbose_name='Director')
     produccion = models.CharField('Producción',max_length = 255)
     pais = models.ForeignKey(Pais, on_delete = models.CASCADE,verbose_name='País')
-    duracion = models.TimeField('Duración')
+    duracion = models.CharField('Duración',max_length=20)
     url = models.URLField(null = True, blank = True)
     slug = models.SlugField(max_length = 250, unique=True, editable= False)
 
@@ -82,8 +82,8 @@ class Episodio(models.Model):
     temporada = models.ForeignKey(Temporada, related_name = 'episodio_temporada', on_delete = models.CASCADE)
     link = models.URLField(max_length = 225)
     titulo = models.CharField('Título',max_length = 225)
-    sinopsis = models.CharField('Sinopsis',max_length = 225)
-    duracion = models.TimeField('Duración')
+    sinopsis = models.TextField('Sinopsis',max_length=200)
+    duracion = models.CharField('Duración',max_length=20)
     slug = models.SlugField(max_length=250, unique=True, editable= False)
 
 
