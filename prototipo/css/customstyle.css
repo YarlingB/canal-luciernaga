@@ -17,6 +17,9 @@
 .top_padd_20{
 	padding-top: 20px !important;
 }
+.rigt_mar_200{
+  margin-right: 200px !important;
+}
 
 .bottom_padd_50{
 	padding-bottom: 50px;
@@ -100,7 +103,7 @@
 }
 
 .bg-bnews{
-	background-image: linear-gradient(to right, #c77016,#FF9E11, #bbdc98);
+	background-image: linear-gradient(to right, #c77016,#FF9E11, #dbdc98);
 }
 
 .expand-more{
@@ -369,7 +372,7 @@ a:hover.light_hover{
 }
 
 /*timeline*/
-.timeline {
+/*.timeline {
   margin: 4em auto;
   position: relative;
   max-width: 46em;
@@ -457,4 +460,4 @@ a:hover.light_hover{
   display: inline-block;
   margin-bottom: 1.2em;
   padding: 0.25em 1em 0.2em 1em;
-}
+}*/
