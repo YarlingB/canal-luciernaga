@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content_hero" style="background-image: url(static/img/movie-main_banner.jpg)">
+
+	<img src="images/scroll-arrow.svg" alt="Scroll down" class="scroll" />
+
+	<!-- Content -->
+	<div class="container">
+		<div class="row blurb scrollme animateme " data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
+			<div class="col-md-9">
+				<span class="title"></span>
+				<h1>Peliculas</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Inicio</a></li>
+					<li class="breadcrumb-item active white-color" aria-current="page">Peliculas</li>
+				</ol>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+{% for x,y in movies_by_cat.items %}
+
+<div class="container section {% if not forloop.last %}rm_padd_bottom{% endif %}">
+	<div class="row">
+		<div class="col-sm-12" id="afterHeader">
+			<h2>{{x}}</h2>
+			
+			<div class="slick-carousel" id="cat-{{x.id}}">
+				{% for video in  y %}
+				<div class="movie-slide">
+					<div class="movie-poster">
+						<aside>
+							<div>
+								<a href="" class="venobox play">
+									<i class="material-icons">play_arrow</i>
+								</a>
+								<div style="padding-top: 15px;">
+									<span class="date">Ficcion</span>
+
+									<span class="date"><strong>{{video}} </strong> </span>											
+									<span>
+										<i class="material-icons expand-more">
+											expand_more
+										</i>
+									</span>
+								</div>
+							</div>
+						</aside>
+						<a href="#">
+							<img src="images/loma-verde.jpg" />
+						</a>
+					</div>
+					<!--<span class="title genrecolor">Ficcion</span> -->
+					<h4 class="no-underline white-color">{{video}} </h4> 
+
+				</div>
+				{% endfor %}
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+jQuery(function ($) {
+
+	$(window).on('load resize scroll', function(){ 
+		{% for x,y in movies_by_cat.items %}
+		$('#cat-{{x.id}}').not('.slick-initialized').slick({
+			autoplay: false,
+			autoplaySpeed: 3000,
+			slidesToShow: 4,
+			centerPadding: '60px',
+			prevArrow: '<i class="material-icons left">keyboard_arrow_left</i>',
+			nextArrow: '<i class="material-icons right">keyboard_arrow_right</i>',
+			responsive: [
+			    {
+			      breakpoint: 768,
+			      settings: {
+			        slidesToShow: 2
+			      }
+			    },
+			    {
+			      breakpoint: 480,
+			      settings: {
+			        slidesToShow: 1
+			      }
+			    }
+			  ]
+		});
+
+		{% endfor %}
+		
+		
+		
+	});
+});
+</script>
+{% endblock extra_js %}
+
+

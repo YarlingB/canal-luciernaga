@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 from taggit.managers import TaggableManager
 from lugar.models import Pais
+from sorl.thumbnail import ImageField
+
 
 # Create your models here.
 
@@ -39,7 +41,7 @@ class Comunicacion(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     autor = models.CharField(max_length = 255)
     fecha = models.DateField()
-    foto = models.ImageField(upload_to='fotos/noticias')
+    foto = ImageField('Imagen',upload_to='fotos/noticias')
     descripcion = models.TextField()
     pais = models.ForeignKey(Pais, on_delete = 255)
     fuente = models.CharField(max_length = 225)

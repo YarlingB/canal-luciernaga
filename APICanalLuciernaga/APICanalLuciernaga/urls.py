@@ -48,6 +48,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('acerca/', views.flatpage, {'url': '/acerca/'}, name='acerca'),
     path('',include('noticias.urls')),
+    path('peliculas/',include('videoteca.urls')),
 
 ]
 

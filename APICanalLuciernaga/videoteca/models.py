@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from lugar.models import Pais
+from sorl.thumbnail import ImageField
 
 #Create your models here.
 
@@ -41,6 +42,7 @@ class Video(models.Model):
     tipo = models.ForeignKey(Tipo,on_delete=models.CASCADE)
     categoria = models.ManyToManyField(Categoria,verbose_name='Categoría')
     nombre = models.CharField('Nombre',max_length = 225)
+    imagen = ImageField('Imagen',upload_to='fotos/videos')
     sinopsis = models.TextField('Sinopsis')
     fecha = models.DateField('Fecha') 
     director = models.ForeignKey(Director, on_delete = models.CASCADE,verbose_name='Director')
@@ -81,6 +83,7 @@ class Temporada(models.Model):
 class Episodio(models.Model):
     temporada = models.ForeignKey(Temporada, related_name = 'episodio_temporada', on_delete = models.CASCADE)
     link = models.URLField(max_length = 225)
+    imagen = ImageField('Imagen',upload_to='fotos/videos')
     titulo = models.CharField('Título',max_length = 225)
     sinopsis = models.TextField('Sinopsis',max_length=200)
     duracion = models.CharField('Duración',max_length=20)

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'taggit',
     'rest_framework',
     'corsheaders',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
