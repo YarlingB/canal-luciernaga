@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -146,7 +147,11 @@
 							</div>
 						</aside>
 						<a href="#">
-							<img src="static/img/caminos_del_silencio.jpg" />
+							{% thumbnail video.imagen "270x337" crop="center" as im %}
+							<img src="{{ im.url }}" alt="">
+							{% empty %}
+							<img src="http://via.placeholder.com/270x337" alt="">
+							{% endthumbnail %}
 						</a>
 					</div>
 					<h4 class="no-underline white-color"><a href="white-color">{{video.nombre}}</a></h4> 
@@ -245,7 +250,11 @@
 							</div>
 						</aside>
 						<a href="#">
-							<img src="static/img/caminos_del_silencio.jpg" class="rounded">
+							{% thumbnail peli.imagen "270x337" crop="center" as im %}
+							<img src="{{ im.url }}" alt="">
+							{% empty %}
+							<img src="http://via.placeholder.com/270x337" alt="">
+							{% endthumbnail %}
 						</a>
 					</div>
 					<!-- <span class="title genrecolor"></span>-->
@@ -296,7 +305,11 @@
 							</div>
 						</aside>
 						<a href="#">
-							<img src="static/img/caminos_del_silencio.jpg" class="rounded" />
+							{% thumbnail doc.imagen "270x337" crop="center" as im %}
+							<img src="{{ im.url }}" alt="">
+							{% empty %}
+							<img src="http://via.placeholder.com/270x337" alt="">
+							{% endthumbnail %}
 						</a>
 					</div>
 					<!--<span class="title genrecolor">Ficcion</span> -->
@@ -331,7 +344,7 @@
 		<div class="row comingSoon-slides">
 			<div class="col-sm-12">		
 				<div class="panel with-nav-tabs panel-default cpanel">
-
+					
 					<div class="panel-body">
 						<div class="tab-content">
 

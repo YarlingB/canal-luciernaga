@@ -23,10 +23,18 @@ def Movies(request,template='movies.html'):
 	videos_all = Video.objects.all()
 	movies_by_cat = {}
 	for x in Categoria.objects.all():
-		filt_movies = Video.objects.filter(categoria=x,tipo=1).order_by('-id')
+		filt_movies = Video.objects.filter(categoria=x,tipo=2).order_by('-id')
 		if filt_movies.exists():
 			movies_by_cat[x] = filt_movies
 
 	return render(request,template,locals())
 
-	
+def Series(request,template='movies.html'):
+	videos_all = Video.objects.all()
+	movies_by_cat = {}
+	for x in Categoria.objects.all():
+		filt_movies = Video.objects.filter(categoria=x,tipo=1).order_by('-id')
+		if filt_movies.exists():
+			movies_by_cat[x] = filt_movies
+
+	return render(request,template,locals())

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -52,10 +53,10 @@
 				<div class="navbar-collapse collapse">
 					<ul id="menu-primary" class="nav navbar-nav">
 						<li class="active dropdown">
-							<a href="index.html">Inicio</a>
+							<a href="/">Inicio</a>
 							<ul class="dropdown-menu">
-								<li><a href="movies.html" class="white-color">Peliculas</a></li>
-								<li><a href="series.html" class="white-color">series</a></li>
+								<li><a href="/videos/peliculas/" class="white-color">Peliculas</a></li>
+								<li><a href="/videos/series/" class="white-color">series</a></li>
 								<li><a href="" class="white-color">Documentales</a></li>
 							</ul>
 						</li>
@@ -133,8 +134,8 @@
 		
 		$('#video_name_'+idvid).addClass('hidden');
 		$('#expand-icon_'+idvid).removeClass('hidden');
-		$('#activeVideo').removeClass('hidden');
-		$('#activeVideo').closest('i').attr('id','idvideo');
+		$('#activeVideo_'+idvid).removeClass('hidden');
+		$('#activeVideo_'+idvid).closest('i').attr('id','idvideo');
 		
 		$(this).parents().addClass('rm_padd_bottom');
 	}

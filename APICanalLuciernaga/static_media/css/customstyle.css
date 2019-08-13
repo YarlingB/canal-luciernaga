@@ -376,3 +376,10 @@ a:hover.light_hover{
 	 filter:brightness(0.3);
 	background-color: rgba(0,0,0,1.5);
 }
+
+/* altos definidos */
+.hg_video{
+	max-height: 25px;
+	overflow: hidden;
+}
+
