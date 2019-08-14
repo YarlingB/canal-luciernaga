@@ -128,21 +128,21 @@
 
 
 	<script type="text/javascript">
-	var video_id_name = 0
-	function showmore(idvid){
-		video_id_name = idvid
+
+	function showmore(idvid, cat){
+		hide_active(idvid,cat) // ocultar si hay otro activo en ese momento
+		$('#video_name_'+idvid+'_'+cat).addClass('hidden');
+		$('#expand-icon_'+idvid+'_'+cat).removeClass('hidden');
+		$('#activeVideo_'+idvid+'_'+cat).removeClass('hidden');
+		// $('#activeVideo_'+idvid+'_'+cat).closest('i').attr('id','idvideo');
 		
-		$('#video_name_'+idvid).addClass('hidden');
-		$('#expand-icon_'+idvid).removeClass('hidden');
-		$('#activeVideo_'+idvid).removeClass('hidden');
-		$('#activeVideo_'+idvid).closest('i').attr('id','idvideo');
-		
-		$(this).parents().addClass('rm_padd_bottom');
+		// $(this).parents().addClass('rm_padd_bottom');
 	}
 
 	//ocultar seccion de active video 
-	function hide_active(idvid){
-		$('#video_name_'+idvid).removeClass('hidden');
+	function hide_active(idvid,cat){
+		$('#video_name_'+idvid+'_'+cat).removeClass('hidden');
+		$('#expand-icon_'+idvid+'_'+cat).addClass('hidden');
 		$('i.material-icons').closest('section').addClass('hidden');
 	}
 	</script>

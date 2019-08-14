@@ -40,10 +40,15 @@
 									<i class="material-icons">play_arrow</i>
 								</a>
 								<div style="padding-top: 15px;">
-									<span class="date">Ficcion</span>
+									<span class="date">
+										{% for cat in video.categoria.all|slice:"3" %}
+										{{cat}} 
+										{% if not forloop.last %},{% endif %}
+										{% endfor%}									
+									</span>
 
 									<span class="date"><strong>{{video}} </strong> </span>											
-									<p id="expand-action" onclick="showmore({{video.id}})">
+									<p id="expand-action" onclick="showmore({{video.id}},{{x.id}})">
 										<i class="material-icons expand-more">
 											expand_more
 										</i>
@@ -60,7 +65,14 @@
 						</a>
 					</div>
 					<!--<span class="title genrecolor">Ficcion</span> -->
-					<h4 id="video_name_{{video.id}}" class="no-underline white-color hg_video">{{video|striptags|truncatechars:29}} </h4> 
+					<h4 id="video_name_{{video.id}}_{{x.id}}" class="no-underline white-color hg_video">
+					{{video|striptags|truncatechars:29}}
+					</h4> 
+					<a id="expand-icon_{{video.id}}_{{x.id}}" href="" class="hidden">
+						<i class="material-icons" style="font-size: 32px;">
+							expand_more
+						</i>
+					</a>
 
 				</div>
 				{% endfor %}
@@ -72,12 +84,12 @@
 
 {% for video in  y %}
 
-<section id="activeVideo_{{video.id}}" class="dark linear-bg hidden">
+<section id="activeVideo_{{video.id}}_{{x.id}}" class="dark linear-bg hidden">
 	<div class=" icon-row " style="position: relative; margin-bottom: 10px; z-index: 1; float: right;">
 		<div class="col" style="padding-right: 0;">
 			<span class=" close_selected">
 				<a href="javascript:void(0)">
-					<i class="material-icons" id="hideActiveV" onclick="hide_active()">close</i>
+					<i class="material-icons" onclick="hide_active({{video.id}},{{x.id}})">close</i>
 				</a>
 			</span>
 		</div>
@@ -92,11 +104,17 @@
 						<div class="tab-content">
 
 							<!--tab1-->
-							<div class="tab-pane fade in active" id="tab1default">
+							<div class="tab-pane fade in active" id="tab1default_{{video.id}}_{{x.id}}">
 								<div class="row single-slide">
 									<div class="bg linear-bg" style="background-color: #0f1010;"></div>
 									<div class="col-sm-5 col-xs-12 slide-content">
-										<span class="title">Serie - Ficción</span>
+										<span class="title"> {% for cat in video.categoria.all %}
+											{{cat}}
+											{% if not forloop.last %}-
+											{% endif %}
+
+										{% endfor %}
+										</span>
 										<h3 class="no-underline">{{video}}</h3>
 
 										<div class="date">
@@ -106,14 +124,14 @@
 											</i>32 min
 
 										</div>
-										<p>La telenovela Loma Verde nos cuenta una historia que puede ser la misma que ocurre en cualquier comunidad de Centroamérica, a través de distintos personajes aborda temas relacionados con la violencia, el VIH, la cultura machista, las creencias religiosas, entre otros, que son presentados de forma amena y dinámica.</p>
+										<p>{{video.sinopsis}}</p>
 										<!-- <p><a href="#" class="arrow-button">Leer mas</a></p> -->
-										<span class="details">Productora: Fundación Luciérnaga 
+										<span class="details">Productora: {{video.produccion}} 
 										</span>
 										<i class="">
 											|
 										</i>
-										<span class="details">Pais: Nicaragua
+										<span class="details">Pais: {{video.pais}}
 										</span>
 									</div>
 									<div class="col-sm-6 col-xs-12 col-sm-push-1 slide-video">
@@ -127,162 +145,28 @@
 
 							</div>
 
-							<!--tab de episodios-->
-							<div class="tab-pane fade" id="tab2default">
-
-								<div class="row">
-									<div class="bg linear-bg" style="background: black;"></div>
-									<div class="col-sm-12 col-xs-12 slide-content">
-										<!-- dropdown inline de temporada y cap -->
-										<div>
-											<div class="d-inline-block">
-												<div class="dropdown show">
-													<a class="btn btn-secondary dropdown-toggle light_hover" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														Temporada
-														<i class="material-icons">arrow_drop_down</i>
-													</a>
-
-													<div class="dropdown-menu" aria-labelledby="dropdownSeason">
-														<a class="dropdown-item active" href="#">1</a>
-														<a class="dropdown-item" href="#">2</a>
-														<a class="dropdown-item" href="#">3</a>
-													</div>
-												</div>
-											</div>
-
-											<div class="d-inline-block">
-
-												<div class="dropdown show">
-													<a class="btn btn-secondary dropdown-toggle light_hover" href="#" role="button" id="dropdownSeason" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														Episodio <i class="material-icons">arrow_drop_down</i>
-													</a>
-
-													<div class="dropdown-menu" aria-labelledby="dropdownSeason">
-														<a class="dropdown-item active" href="#">1</a>
-														<a class="dropdown-item" href="#">2</a>
-														<a class="dropdown-item" href="#">3</a>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="slick-carousel" id="comingSoon">
-											<div>
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Deepwater horizon</h5>
-												<span class="release-date">07 September, 2017</span>
-											</div>
-											<div data-dynamicclass="slideTwo">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Too fast</h5>
-												<span class="release-date">15 April, 2017</span>
-											</div>
-											<div data-dynamicclass="slideThree">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">The Hangover: Part III</h5>
-												<span class="release-date">30 September, 2017</span>
-											</div>
-											<div data-dynamicclass="slideFour">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Transformers: Age of Extinction</h5>
-												<span class="release-date">15 April, 2018</span>
-											</div>
-											<div data-dynamicclass="slideFive">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">End of an empire</h5>
-												<span class="release-date">19 October, 2018</span>
-											</div>
-											<div data-dynamicclass="slideSix">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Hanibal Rising</h5>
-												<span class="release-date">21 November, 2018</span>
-											</div>
-											<div data-dynamicclass="slideSeven">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Locked out</h5>
-												<span class="release-date">01 December, 2018</span>
-											</div>
-										</div>
-
-
-
-									</div>
-									<!-- Capitulos -->
-
-								</div>
-
-							</div>
 
 							<!--tab de similares-->
-							<div class="tab-pane fade" id="tab3default">
+							<div class="tab-pane fade" id="tab3default_{{video.id}}_{{x.id}}">
 								<div class="row">
 									<div class="bg linear-bg" style="background: black;"></div>
 
 									<div class="col-sm-12 col-xs-12 slide content">
 										<div class="slick-carousel" id="similar_video">
+											{% for sim_vid in y %}
+											{% if sim_vid.id != video.id%}
+										
 											<div>
 												<a href="#">
 													<img src="http://via.placeholder.com/265x340" alt="">
 												</a>
-												<h5 class="left no-underline">Deepwater horizon</h5>
+												<h5 class="left no-underline"> {{sim_vid}}</h5>
 												<span class="release-date">07 September, 2017</span>
 											</div>
-											<div data-dynamicclass="slideTwo">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Too fast</h5>
-												<span class="release-date">15 April, 2017</span>
-											</div>
-											<div data-dynamicclass="slideThree">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">The Hangover: Part III</h5>
-												<span class="release-date">30 September, 2017</span>
-											</div>
-											<div data-dynamicclass="slideFour">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Transformers: Age of Extinction</h5>
-												<span class="release-date">15 April, 2018</span>
-											</div>
-											<div data-dynamicclass="slideFive">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">End of an empire</h5>
-												<span class="release-date">19 October, 2018</span>
-											</div>
-											<div data-dynamicclass="slideSix">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Hanibal Rising</h5>
-												<span class="release-date">21 November, 2018</span>
-											</div>
-											<div data-dynamicclass="slideSeven">
-												<a href="#">
-													<img src="http://via.placeholder.com/265x340" alt="">
-												</a>
-												<h5 class="left no-underline">Locked out</h5>
-												<span class="release-date">01 December, 2018</span>
-											</div>
+											{% endif %}
+											{% endfor %}
+											
+											
 										</div>
 
 
@@ -293,9 +177,9 @@
 					</div>
 					<div class="panel-heading no_bottom_border">
 						<ul class="nav nav-tabs nav-posit" style="background-color: #000000ab;">
-							<li class="active"><a href="#tab1default" data-toggle="tab">Desripcion</a></li>
-							<li><a href="#tab2default" data-toggle="tab">Episodios</a></li>
-							<li><a href="#tab3default" data-toggle="tab">Similares</a></li>
+							<li class="active"><a href="#tab1default_{{video.id}}_{{x.id}}" data-toggle="tab">Desripcion</a></li>
+							
+							<li><a href="#tab3default_{{video.id}}_{{x.id}}" data-toggle="tab">Similares</a></li>
 						</ul>
 					</div>
 				</div>
@@ -346,9 +230,7 @@ jQuery(function ($) {
 		});
 
 		{% endfor %}
-		
-		
-		
+						
 	});
 });
 </script>
