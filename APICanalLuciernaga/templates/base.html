@@ -130,10 +130,23 @@
 	<script type="text/javascript">
 
 	function showmore(idvid, cat){
-		hide_active(idvid,cat) // ocultar si hay otro activo en ese momento
-		$('#video_name_'+idvid+'_'+cat).addClass('hidden');
-		$('#expand-icon_'+idvid+'_'+cat).removeClass('hidden');
-		$('#activeVideo_'+idvid+'_'+cat).removeClass('hidden');
+		var video_id = idvid;
+		var data = {video_id};
+		$.ajax({
+			type : 'GET',
+			url :  "{% url 'get_video_info' %}",
+			data : data,
+			success : function(response){
+				alert(response.video_info.nombre);
+			},
+			error : function(response){
+				alert(response);
+			}
+		})
+		// hide_active(idvid,cat); // ocultar si hay otro activo en ese momento
+		// $('#video_name_'+idvid+'_'+cat).addClass('hidden');
+		// $('#expand-icon_'+idvid+'_'+cat).removeClass('hidden');
+		// $('#activeVideo_'+idvid+'_'+cat).removeClass('hidden');
 		// $('#activeVideo_'+idvid+'_'+cat).closest('i').attr('id','idvideo');
 		
 		// $(this).parents().addClass('rm_padd_bottom');

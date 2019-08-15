@@ -2,6 +2,7 @@ from rest_framework import viewsets
 from .models import Video, Episodio,Tipo, Categoria
 from .serializers import VideoSerializer, EpisodioSerializer, CategoriaSerializer, TipoSerializer
 from django.shortcuts import render
+from django.http import JsonResponse
 
 class VideoViewSet(viewsets.ModelViewSet):
 	queryset = Video.objects.all()
@@ -38,3 +39,29 @@ def Series(request,template='movies.html'):
 			movies_by_cat[x] = filt_movies
 
 	return render(request,template,locals())
+
+def GetVideoInfo(request):
+	if request.method == "GET" and request.is_ajax():
+		video_id = request.GET.get("video_id")
+		try:
+			video = Video.objects.get(id = video_id)
+			print (video.categoria)
+		except:
+			return JsonResponse({"success":False}, status=400)
+		video_info = {
+			# "categoria":video.categoria.nombre,
+			"nombre":video.nombre,
+			"sinopsis":video.sinopsis,
+			"fecha":video.fecha,
+			# "director":video.director,
+			"produccion":video.produccion,
+			"pais":video.pais.nombre,
+			"duracion":video.duracion,
+			"url": video.url
+		}
+		return JsonResponse({"video_info":video_info}, status=200)
+	return JsonResponse({"success":False}, status=400)
+
+
+
+

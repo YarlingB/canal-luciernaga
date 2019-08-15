@@ -197,7 +197,11 @@
 							</div>
 						</aside>
 						<a href="#">
-							<img src="static/img/caminos_del_silencio.jpg" class="rounded">
+							{% thumbnail serie.imagen "270x337" crop="center" as im %}
+							<img src="{{ im.url }}" alt="">
+							{% empty %}
+							<img src="http://via.placeholder.com/270x337" alt="">
+							{% endthumbnail %}
 						</a>
 					</div>
 					<span class="title genrecolor"></span>

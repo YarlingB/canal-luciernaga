@@ -82,9 +82,9 @@
 	</div>
 </div>
 
-{% for video in  y %}
+{% for cat in  x %}
 
-<section id="activeVideo_{{video.id}}_{{x.id}}" class="dark linear-bg hidden">
+<!--<section id="activeVideo_{{video.id}}_{{x.id}}" class="dark linear-bg hidden">
 	<div class=" icon-row " style="position: relative; margin-bottom: 10px; z-index: 1; float: right;">
 		<div class="col" style="padding-right: 0;">
 			<span class=" close_selected">
@@ -102,8 +102,6 @@
 					
 					<div class="panel-body">
 						<div class="tab-content">
-
-							<!--tab1-->
 							<div class="tab-pane fade in active" id="tab1default_{{video.id}}_{{x.id}}">
 								<div class="row single-slide">
 									<div class="bg linear-bg" style="background-color: #0f1010;"></div>
@@ -125,7 +123,7 @@
 
 										</div>
 										<p>{{video.sinopsis}}</p>
-										<!-- <p><a href="#" class="arrow-button">Leer mas</a></p> -->
+										
 										<span class="details">Productora: {{video.produccion}} 
 										</span>
 										<i class="">
@@ -146,7 +144,6 @@
 							</div>
 
 
-							<!--tab de similares-->
 							<div class="tab-pane fade" id="tab3default_{{video.id}}_{{x.id}}">
 								<div class="row">
 									<div class="bg linear-bg" style="background: black;"></div>
@@ -190,10 +187,10 @@
 	</div>
 </section>
 
-{% endfor %}
+{% endfor %}-->
 
 
-{% endfor %}<!-- fin for videos por categoria -->
+{% endfor %}<!-- fin for loop videos por categoria -->
 
 
 
@@ -202,6 +199,7 @@
 
 {% block extra_js %}
 <script>
+
 jQuery(function ($) {
 
 	$(window).on('load resize scroll', function(){ 
