@@ -82,14 +82,14 @@
 	</div>
 </div>
 
-{% for cat in  x %}
+{% for det_vid in  y %}
 
-<!--<section id="activeVideo_{{video.id}}_{{x.id}}" class="dark linear-bg hidden">
+<section id="activeVideo_{{det_vid.id}}_{{x.id}}" class="dark linear-bg hidden">
 	<div class=" icon-row " style="position: relative; margin-bottom: 10px; z-index: 1; float: right;">
 		<div class="col" style="padding-right: 0;">
 			<span class=" close_selected">
 				<a href="javascript:void(0)">
-					<i class="material-icons" onclick="hide_active({{video.id}},{{x.id}})">close</i>
+					<i class="material-icons" onclick="hide_active({{det_vid.id}},{{x.id}})">close</i>
 				</a>
 			</span>
 		</div>
@@ -102,18 +102,18 @@
 					
 					<div class="panel-body">
 						<div class="tab-content">
-							<div class="tab-pane fade in active" id="tab1default_{{video.id}}_{{x.id}}">
+							<div class="tab-pane fade" id="tab1default_{{det_vid.id}}_{{x.id}}">
 								<div class="row single-slide">
 									<div class="bg linear-bg" style="background-color: #0f1010;"></div>
 									<div class="col-sm-5 col-xs-12 slide-content">
-										<span class="title"> {% for cat in video.categoria.all %}
+										<span class="title"> {% for cat in det_vid.categoria.all %}
 											{{cat}}
 											{% if not forloop.last %}-
 											{% endif %}
 
 										{% endfor %}
 										</span>
-										<h3 class="no-underline">{{video}}</h3>
+										<h3 class="no-underline">{{det_vid}}</h3>
 
 										<div class="date">
 											<i class="material-icons">date_range</i> 30 Diciembre, 2018 
@@ -122,14 +122,14 @@
 											</i>32 min
 
 										</div>
-										<p>{{video.sinopsis}}</p>
+										<p>{{det_vid.sinopsis}}</p>
 										
-										<span class="details">Productora: {{video.produccion}} 
+										<span class="details">Productora: {{det_vid.produccion}} 
 										</span>
 										<i class="">
 											|
 										</i>
-										<span class="details">Pais: {{video.pais}}
+										<span class="details">Pais: {{det_vid.pais}}
 										</span>
 									</div>
 									<div class="col-sm-6 col-xs-12 col-sm-push-1 slide-video">
@@ -144,7 +144,7 @@
 							</div>
 
 
-							<div class="tab-pane fade" id="tab3default_{{video.id}}_{{x.id}}">
+							<div class="tab-pane fade" id="tab3default_{{det_vid.id}}_{{x.id}}">
 								<div class="row">
 									<div class="bg linear-bg" style="background: black;"></div>
 
@@ -174,9 +174,9 @@
 					</div>
 					<div class="panel-heading no_bottom_border">
 						<ul class="nav nav-tabs nav-posit" style="background-color: #000000ab;">
-							<li class="active"><a href="#tab1default_{{video.id}}_{{x.id}}" data-toggle="tab">Desripcion</a></li>
+							<li id="activelitab_{{det_vid.id}}_{{x.id}}"><a href="#tab1default_{{det_vid.id}}_{{x.id}}" data-toggle="tab">Desripcion</a></li>
 							
-							<li><a href="#tab3default_{{video.id}}_{{x.id}}" data-toggle="tab">Similares</a></li>
+							<li><a href="#tab3default_{{det_vid.id}}_{{x.id}}" data-toggle="tab">Similares</a></li>
 						</ul>
 					</div>
 				</div>
@@ -187,8 +187,7 @@
 	</div>
 </section>
 
-{% endfor %}-->
-
+{% endfor %}
 
 {% endfor %}<!-- fin for loop videos por categoria -->
 
