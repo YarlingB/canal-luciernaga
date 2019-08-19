@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{%load el_pagination_tags %}
+
+{% block content %}
+
+<!-- banner -->
+
+<div id="hero" class="carousel slide carousel-fade" data-ride="carousel">
+
+	<!-- Indicators -->
+	<div class="container ">	
+		<ol class="carousel-indicators">
+			<li data-target="#hero" data-slide-to="0" class="active"></li>
+			<li data-target="#hero" data-slide-to="1"></li>
+			<li data-target="#hero" data-slide-to="2"></li>
+		</ol>
+	</div>
+	
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+
+		{% for news in news_list %}
+
+		{% if news.portada %}
+		<div class="item {% if forloop.first %}active{% endif %} " style="background-image: url(/static/img/movie-main_banner.jpg)">
+			<div class="container">
+				<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
+					<div class="col-md-9 main-items">
+
+						<h3 class="no-underline white-color bann_name">{{news}}</h3>
+						<p class="bann_name">{{news.descripcion|safe|striptags|truncatechars:100}}</p>
+
+						<div class="buttons top_padd_20 ">
+
+							<a class="venobox btn btn-ghost">
+
+								<span>{{news.categoria}}</span>
+							</a>
+
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
+		{% endfor %}
+
+	</div>
+
+</div>
+
+<!-- contenido -->
+
+<div class="container section news">
+	<div class="row">
+		<div class="col-sm-8">
+			{% paginate 5 news_list %}
+			{% for all_news in news_list %}
+			
+			<article>
+				<span class="categories">{{all_news.categoria}}</span>
+
+				<h2 class="no-underline"><a href="{% url 'news_detail' all_news.slug %}" class="white-color">{{all_news}}</a></h2>
+				<div class="col-sm-4">
+					<a href="{% url 'news_detail' all_news.slug %}" class="img">
+						<aside>
+							<div>
+								<i class="material-icons">link</i>
+								<span class="date">{{all_news.fecha|date:"d"}} {{all_news.fecha|date:"M"}}, {{all_news.fecha|date:"Y"}} por {{all_news.autor}}</span>
+							</div>
+						</aside>
+						{% thumbnail all_news.foto "187x187" crop="center" as im%}
+						<img src="{{im.url}}" alt=""/>
+						{%endthumbnail%}
+					</a>
+				</div>
+
+				<p style="max-height: 192px; overflow: hidden;">{{all_news.descripcion|striptags|truncatechars:470}}<a href="{% url 'news_detail' all_news.slug %}" class="">
+					<span>Leer más</span>
+				</a></p>
+
+			</article>
+			{% endfor %}
+
+		</div>
+
+		<aside class="col-sm-3 col-sm-push-1 sidebar">
+			<div class="widget">
+				<form>
+					<input type="text" placeholder="Buscar..." class="search" />
+					<i class="material-icons">search</i>
+				</form>
+			</div>
+			<div class="widget">
+				<h3>Temas</h3>
+				<ul>
+					{% for themat in thematic_list %}
+						
+					<li><a href="#">{{themat.nombre}}</a></li>
+
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div class="widget">
+				<h3>Tags</h3>
+				{% for tag in common_tags %}
+				
+				<a href="#" class="tag">{{tag}}</a>
+
+				{% endfor %}
+			</div>
+		</aside>
+
+
+	</div>
+</div>	
+
+<!-- Paginacion -->
+
+{% if pages.paginated %}
+<div class="section small-padding border-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<ul class="pagination">
+					{% get_pages %}
+
+					<li>
+						<a href="{{ pages.previous.path }}">
+							<i class="material-icons">arrow_back_ios</i>
+						</a>
+					</li>
+
+					{% for page in pages %}
+
+					<li><a href="./{{ page.url }}" class="{% if page.is_current %} active {% endif %}">{{page.number}}</a></li>
+
+					{% endfor %}
+
+					<li>
+						<a href="{{ pages.next.path }}">
+							<i class="material-icons">arrow_forward_ios</i>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% endblock content %}

@@ -12,3 +12,7 @@ class BibliotecaViewSet(viewsets.ModelViewSet):
 class CategoriaBibliotecaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+def Biblioteca_list(request,template='biblioteca.html'):
+	b_list = Biblioteca.objects.order_by('-id')
+	return render(request,template,locals())

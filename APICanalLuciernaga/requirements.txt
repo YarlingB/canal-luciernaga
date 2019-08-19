@@ -1,5 +1,6 @@
 Django==2.2.3
 django-cors-headers==3.0.2
+django-el-pagination==3.2.4
 django-nested-admin==3.2.3
 django-taggit==1.1.0
 djangorestframework==3.9.4

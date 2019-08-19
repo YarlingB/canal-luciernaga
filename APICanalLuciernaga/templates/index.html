@@ -19,20 +19,23 @@
 	
 	<div class="carousel-inner">
 
-		<div class="item active" style="background-image: url(images/banners/index-banner.jpg)">
-			<!-- Content -->
+		{% for banner in bann_vid %}
+			
+		<div class="item {% if forloop.first %} active {% endif %}" style="background-image: url(static/img/index-banner.jpg)">
 			<div class="container">
 				<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
 					<div class="col-md-9 main-items">
 						
-						<h3 class="no-underline white-color bann_name">Mujeres de Ometepe validan la estrategia de comunicación para sensibilizar sobre violencia de género basada en la telenovela Loma Verde</h3>
+						<h3 class="no-underline white-color bann_name">{{banner}}</h3>
 						<div class="buttons top_padd_20">
 							
 							<a class="venobox btn btn-ghost">
-								
-								<span>Medio ambiente</span>
+								{% for cat in banner.categoria.all|slice:"1" %}
+									<span>{{cat}}</span>								
+								{% endfor %}
 							</a>
-							<a class="venobox btn btn-default">
+
+							<a href="{% if banner.tipo == 1 %} {{banner.url}} {% else %} {% endif %} " data-vbtype="video" class="venobox btn btn-default">
 								<i class="material-icons">play_arrow</i>
 								<span>Reproducir</span>
 							</a>
@@ -42,49 +45,9 @@
 			</div>
 		</div>
 
-		<div class="item" style="background-image: url(http://via.placeholder.com/1140x665)">
-			<!-- Content -->
-			<div class="container">
-				<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
-					<div class="col-md-9">
-						<span class="title">Action, Adventure, Fantasy</span>
-						<h1>End of the World: Part II</h1>
-						<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum.</p>
-						<div class="buttons">
-							<span class="certificate">
-								15
-							</span>
-							<a href="#" class="venobox btn btn-default">
-								<i class="material-icons">play_arrow</i>
-								<span>Play trailer</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<div class="item" style="background-image: url(http://via.placeholder.com/1140x665)">
-			<!-- Content -->
-			<div class="container">
-				<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
-					<div class="col-md-9">
-						<span class="title">Action, Adventure, Fantasy</span>
-						<h1>End of the World: Part II</h1>
-						<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum.</p>
-						<div class="buttons">
-							<span class="certificate">
-								PG
-							</span>
-							<a href="#" class="venobox btn btn-default">
-								<i class="material-icons">play_arrow</i>
-								<span>Play trailer</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		{% endfor %}
+
 	</div>
 </div>
 
@@ -570,3 +533,14 @@
 
 
 {% endblock content %}
+
+{% block extra_js %}
+<script>
+	$(function(){
+
+	
+	});
+</script>
+
+	
+{% endblock extra_js %}

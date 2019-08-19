@@ -40,6 +40,21 @@ def Series(request,template='movies.html'):
 
 	return render(request,template,locals())
 
+def Documental(request,template='movies.html'):
+	videos_all = Video.objects.all()
+	movies_by_cat = {}
+	for x in Categoria.objects.all():
+		filt_movies = Video.objects.filter(categoria=x,tipo=3).order_by('-id')
+		if filt_movies.exists():
+			movies_by_cat[x] = filt_movies
+
+	return render(request,template,locals())
+
+
+def Video_detail(request,slug,template='detail_movie.html'):
+	object = Video.objects.get(slug=slug)
+	return render(request,template,locals())
+
 def GetVideoInfo(request):
 	if request.method == "GET" and request.is_ajax():
 		video_id = request.GET.get("video_id")

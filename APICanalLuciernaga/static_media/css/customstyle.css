@@ -383,3 +383,17 @@ a:hover.light_hover{
 	overflow: hidden;
 }
 
+
+.banner_det_name{
+	font-size: 30px !important;
+    font-weight: 300;
+    padding: 0;
+    -webkit-animation: Heading .5s .5s forwards;
+    -moz-animation: Heading .5s .5s forwards;
+    -o-animation: Heading .5s .5s forwards;
+    animation: Heading .5s .5s forwards;
+    letter-spacing: 3px;
+    opacity: 0;
+    color: #fff;
+    border: none;
+}

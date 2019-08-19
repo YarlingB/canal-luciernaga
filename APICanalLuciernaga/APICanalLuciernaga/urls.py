@@ -49,6 +49,7 @@ urlpatterns = [
     path('acerca/', views.flatpage, {'url': '/acerca/'}, name='acerca'),
     path('',include('noticias.urls')),
     path('videos/',include('videoteca.urls')),
+    path('biblioteca/', include('biblioteca.urls')),
 
 ]
 

@@ -40,6 +40,7 @@ class Director(models.Model):
 
 class Video(models.Model):
     tipo = models.ForeignKey(Tipo,on_delete=models.CASCADE)
+    portada = models.BooleanField('Portada',default=False)
     categoria = models.ManyToManyField(Categoria,verbose_name='Categoría')
     nombre = models.CharField('Nombre',max_length = 225)
     imagen = ImageField('Imagen',upload_to='fotos/videos')
