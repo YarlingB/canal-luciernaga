@@ -50,6 +50,7 @@ urlpatterns = [
     path('',include('noticias.urls')),
     path('videos/',include('videoteca.urls')),
     path('biblioteca/', include('biblioteca.urls')),
+    path('en-directo/',include('programacion.urls')),
 
 ]
 

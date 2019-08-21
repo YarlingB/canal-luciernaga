@@ -26,10 +26,31 @@
 
 <div class="container section news">
 	<div class="row">
-		<div class="col-sm-7">
+		<div class="col-sm-8">
 			<article>
 				<span class="categories">{{object.categoria}}</span>
 				<h2 class="no-underline white-color">{{object.titulo}}</h2>
+				<div class="bottom_padd_30">
+					<div class="d-inline-block">
+						<i class="material-icons genrecolor">person</i>
+						<span>{{object.autor}}</span>
+					</div class="d-inline-block">
+
+					<div class="d-inline-block ">
+						<i class="material-icons genrecolor">
+						account_balance
+						</i>
+						<span>{{object.autor.org.siglas}}</span>
+					</div class="d-inline-block">
+
+					<div class="d-inline-block">
+						<i class="material-icons genrecolor">
+						calendar_today
+						</i>
+						<span>{{object.fecha}}</span>
+					</div class="d-inline-block">
+					
+				</div>
 
 				<img src="{{object.foto.url}}" class="news-single-img" alt="" />
 
@@ -97,3 +118,8 @@
 </div>
 
 {% endblock content %}
+
+
+{% block extra_js %}
+	<script defer src="https://friconix.com/cdn/friconix.js"></script>
+{% endblock extra_js %}

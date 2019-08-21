@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'noticias',
     'biblioteca',
     'programacion',
+    'organizacion',
+    'usuario',
     # terceros
     'nested_admin',
     'taggit',
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'el_pagination',
 ]
+
+AUTH_USER_MODEL = 'usuario.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

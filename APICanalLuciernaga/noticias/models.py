@@ -3,7 +3,7 @@ from django.utils.text import slugify
 from taggit.managers import TaggableManager
 from lugar.models import Pais
 from sorl.thumbnail import ImageField
-from django.contrib.auth.models import User
+from usuario.models import User
 
 # Create your models here.
 

@@ -4,6 +4,7 @@ from django.db import models
 class Programacion(models.Model):
     titulo = models.CharField(max_length = 225)
     link = models.URLField()
+    fecha = models.DateField()
 
     def __str__(self):
         return self.titulo
