@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
+from django.http import Http404
+
 from rest_framework import viewsets
 from .serializers import HoraProgramacionSerializer
 from .models import HoraProgramacion,Programacion
@@ -12,5 +14,7 @@ class HoraProgramacionViewSet(viewsets.ModelViewSet):
 
 def en_vivo(request,template='en_vivo.html'):
 	fecha_hoy = datetime.date.today()
-	v_directo = Programacion.objects.get(fecha = fecha_hoy)
+	
+ 	# v_directo = get_object_or_404(Programacion,)
+	v_directo = Programacion.objects.filter(fecha = fecha_hoy)
 	return render(request,template,locals())

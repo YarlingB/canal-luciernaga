@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from lugar.models import Pais
 from sorl.thumbnail import ImageField
+from noticias.models import Categoria
 
 #Create your models here.
 
@@ -11,16 +12,6 @@ class Tipo(models.Model):
     class Meta:
          ordering = ['-id']
 
-    def __str__(self):
-        return self.nombre
-
-
-class Categoria(models.Model):
-    nombre = models.CharField(max_length = 255)
-
-    class Meta:
-        ordering = ['-id']
-        
     def __str__(self):
         return self.nombre
 

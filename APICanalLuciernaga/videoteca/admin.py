@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Video, Director, Tipo, Categoria, Episodio, Temporada
+from .models import Video, Director, Tipo, Episodio, Temporada
 from lugar.models import Pais
 import nested_admin
 
@@ -33,6 +33,6 @@ class VideoAdmin(nested_admin.NestedModelAdmin):
 
 # Register your models here.
 admin.site.register(Tipo,TipoAdmin)
-admin.site.register(Categoria,CategoriaAdmin)
+# admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Director,DirectorAdmin) 
 admin.site.register(Video,VideoAdmin)  

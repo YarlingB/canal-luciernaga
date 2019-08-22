@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import *
-from .serializers import ComunicacionSerializer, CategoriaSerializer, ClasificacionSerializer
+from .serializers import ComunicacionSerializer, CategoriaSerializer
 
 from videoteca.models import Video,Temporada,Episodio
 
@@ -14,9 +14,9 @@ class CategoriaNoticiaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
-class ClasificacionNoticiaViewSet(viewsets.ModelViewSet):
-    queryset = Clasificacion.objects.all()
-    serializer_class = ClasificacionSerializer
+# class ClasificacionNoticiaViewSet(viewsets.ModelViewSet):
+#     queryset = Clasificacion.objects.all()
+#     serializer_class = ClasificacionSerializer
 
 # Web Views
 def home(request,template='index.html'):

@@ -397,3 +397,8 @@ a:hover.light_hover{
     color: #fff;
     border: none;
 }
+
+.customcard{
+	border-radius: 15px;
+	border-bottom: gray;
+}

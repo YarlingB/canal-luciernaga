@@ -1,17 +1,8 @@
 from django.db import models
 from sorl.thumbnail import ImageField
-
+from noticias.models import Categoria
 # Create your models here.
 
-class Categoria(models.Model):
-    nombre = models.CharField(max_length = 225)
-
-    def __str__(self):
-        return self.nombre
-    
-    class Meta:
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorias"
 
 class Biblioteca(models.Model):
     nombre = models.CharField(max_length = 225)

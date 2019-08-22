@@ -17,15 +17,15 @@ class Categoria(models.Model):
         verbose_name = "Categoria"
         verbose_name_plural = "Categorias"
 
-class Clasificacion(models.Model):
-    nombre = models.CharField(max_length = 225)
+# class Clasificacion(models.Model):
+#     nombre = models.CharField(max_length = 225)
     
-    def __str__(self):
-        return self.nombre
+#     def __str__(self):
+#         return self.nombre
     
-    class Meta:
-        verbose_name = "Clasificacion"
-        verbose_name_plural = "Clasificaciones"
+#     class Meta:
+#         verbose_name = "Clasificacion"
+#         verbose_name_plural = "Clasificaciones"
         
 
 TIPO_COMUNICACION_CHOICE = [
@@ -38,7 +38,7 @@ class Comunicacion(models.Model):
     ultimo_momento = models.BooleanField(default=False)
     portada = models.BooleanField('Portada',default=False)
     titulo = models.CharField(max_length = 225)
-    clasificacion = models.ForeignKey(Clasificacion, on_delete = models.CASCADE)
+    # clasificacion = models.ForeignKey(Clasificacion, on_delete = models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     autor = models.ForeignKey(User,on_delete=models.CASCADE)
     fecha = models.DateField()

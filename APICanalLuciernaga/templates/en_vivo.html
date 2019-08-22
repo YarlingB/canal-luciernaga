@@ -1,5 +1,89 @@
 {% extends "base.html" %}
+{% load thumbnail %}
+{% load embed_video_tags %}
 
 {% block content %}
-	{{v_directo}}
+
+{% for directo in v_directo|slice:"1" %}
+<div class=" section" style="margin-top:100px;">
+
+		
+	
+	<div class="row">
+		<div class="col-sm-12">
+
+		
+			
+
+			<div style="text-align:center">			
+
+
+				<iframe width="100%" height="600" src="{{directo.link}}?modestbranding=1&autoplay=1&controls=1&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&mute=1" allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0">
+				</iframe>
+
+			
+			</div>
+
+			<div class="buttons text-center top_padd_30">
+
+				<a href="#inline-content" class="venobox btn btn-default" data-vbtype="inline">
+
+					<span>Programación</span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="inline-content" style="display:none;">
+		<div class="padd_15">
+			<div class="col-sm-12">
+				<div class="tabs movies">
+					<ul>
+						<li><a class="text-center" href="#wed">Programación</a></li>
+						<li class="date"><span class="">{{fecha_hoy}}</span></li>
+					</ul>
+				</div>
+
+				<div class="table-responsive">
+
+				<table class="table table-dark">
+					<tbody>
+						{% for programa  in directo.horaprogramacion_set.all %}
+							
+						
+						<tr>
+							<th scope="row" style="vertical-align: middle;">
+								<span class="time past"style="background-color: gray; border-radius: 5px;padding: 5px;color: antiquewhite;">{{programa.hora_inicio|time:"TIME_FORMAT"}}</span> 
+								<span class="time"style="background-color: gray;border-radius: 5px;padding: 5px;color: white;">{{programa.hora_fin|time:"TIME_FORMAT"}}</span>	
+							</th>
+							<td>
+								<h3 class="no-underline white-color">
+									<span class="title">{{programa.titulo}}</span>
+								</h3>
+								{% if programa.descripcion %}
+									<p>{{programa.descripcion}}</p>
+								{% endif %}
+								
+								<span class="white-color">Nicaragua</span>
+							</td>
+							<td style="vertical-align: middle;">
+								<p>Economia</p> 
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+
+</div>
+
+{% endfor %}	
 {% endblock content %}

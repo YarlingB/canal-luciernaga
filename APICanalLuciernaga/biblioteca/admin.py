@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Biblioteca, Categoria
+from .models import Biblioteca
 
 # Register your models here.
 class CategoriaAdmin(admin.ModelAdmin):
@@ -9,4 +9,4 @@ class BibliotecaAdmin(admin.ModelAdmin):
     autocomplete_fields = ['categoria']
 
 admin.site.register(Biblioteca,BibliotecaAdmin)
-admin.site.register(Categoria,CategoriaAdmin)
+# admin.site.register(Categoria,CategoriaAdmin)

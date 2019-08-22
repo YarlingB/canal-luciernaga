@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'sorl.thumbnail',
     'el_pagination',
+    'embed_video',
 ]
 
 AUTH_USER_MODEL = 'usuario.User'
