@@ -24,12 +24,15 @@
 <div class="container section">
 	<div class="row">
 		<div class="col-sm-8 ">
+			<ul>
+			{% for doc in b_list %}
 			<div class="col-md-6 customcard">
-				<h1>test</h1>
+				<li class=""></li>
+				<h1>{{doc}}</h1>
 			</div>
-			<div class="col-md-6 customcard">
-				<h1>test</h1>
-			</div>
+			{% endfor %}
+			</ul>
+			
 
 
 		</div>
