@@ -18,16 +18,15 @@ class CategoriaNoticiaViewSet(viewsets.ModelViewSet):
 #     queryset = Clasificacion.objects.all()
 #     serializer_class = ClasificacionSerializer
 
+
 # Web Views
 def home(request,template='index.html'):
 	highlight_news = Comunicacion.objects.filter(ultimo_momento=1,tipo=1)[:5]
 	latest_video = Video.objects.order_by('-id')[:10]
-	series_list = Video.objects.filter(tipo=1).order_by('-id')
-	peli_list = Video.objects.filter(tipo=2).order_by('-id')
-	doc_list = Video.objects.filter(tipo=3).order_by('-id')
+	series_list = Video.objects.filter(tipo__nombre='Series').order_by('-id')
+	peli_list = Video.objects.filter(tipo__nombre='Peliculas').order_by('-id')
+	doc_list = Video.objects.filter(tipo__nombre='Documentales').order_by('-id')
 	bann_vid = Video.objects.filter(portada=True).order_by('-id')[:3]
-
-	# bann_serie = bann_vid.
 
 	return render(request,template,locals())
 

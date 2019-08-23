@@ -24,7 +24,7 @@ def Movies(request,template='movies.html'):
 	videos_all = Video.objects.all()
 	movies_by_cat = {}
 	for x in Categoria.objects.all():
-		filt_movies = Video.objects.filter(categoria=x,tipo=2).order_by('-id')
+		filt_movies = Video.objects.filter(categoria=x,tipo__nombre='Peliculas').order_by('-id')
 		if filt_movies.exists():
 			movies_by_cat[x] = filt_movies
 
@@ -32,9 +32,10 @@ def Movies(request,template='movies.html'):
 
 def Series(request,template='movies.html'):
 	videos_all = Video.objects.all()
+	is_serie = True
 	movies_by_cat = {}
 	for x in Categoria.objects.all():
-		filt_movies = Video.objects.filter(categoria=x,tipo=1).order_by('-id')
+		filt_movies = Video.objects.filter(categoria=x,tipo__nombre='Series').order_by('-id')
 		if filt_movies.exists():
 			movies_by_cat[x] = filt_movies
 
@@ -44,7 +45,7 @@ def Documental(request,template='movies.html'):
 	videos_all = Video.objects.all()
 	movies_by_cat = {}
 	for x in Categoria.objects.all():
-		filt_movies = Video.objects.filter(categoria=x,tipo=3).order_by('-id')
+		filt_movies = Video.objects.filter(categoria=x,tipo__nombre='Documentales').order_by('-id')
 		if filt_movies.exists():
 			movies_by_cat[x] = filt_movies
 

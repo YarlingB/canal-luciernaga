@@ -26,14 +26,18 @@
 		<div class="col-sm-8 ">
 			<ul>
 			{% for doc in b_list %}
-			<div class="col-md-6 customcard">
-				<li class=""></li>
-				<h1>{{doc}}</h1>
+			<div class="col-md-6 customcard bottom_padd_30">
+				<li class="">{{doc}}</li>
+				<div>
+					<i class="material-icons">
+						cloud_download
+					</i>
+					<a target="_blank" href="/media/{{doc.archivo}}">Descargar</a>
+				</div>
 			</div>
-			{% endfor %}
-			</ul>
-			
 
+			{% endfor %}
+			</ul>		
 
 		</div>
 
