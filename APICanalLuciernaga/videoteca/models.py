@@ -73,7 +73,7 @@ class Temporada(models.Model):
         verbose_name_plural = "Temporadas"
 
 class Episodio(models.Model):
-    temporada = models.ForeignKey(Temporada, related_name = 'episodio_temporada', on_delete = models.CASCADE)
+    temporada = models.ForeignKey(Temporada, on_delete = models.CASCADE)
     link = models.URLField(max_length = 225)
     imagen = ImageField('Imagen',upload_to='fotos/videos')
     titulo = models.CharField('Título',max_length = 225)

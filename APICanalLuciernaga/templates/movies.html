@@ -227,11 +227,29 @@
 						</div>
 
 						{% for temp in det_vid.temporada_set.all %}
-							<h1>{{temp.temporada}}--{{temp.info_video}}</h1>
+							
+								<h1>Temporada {{temp.id}}</h1>
+								<div class="owl-carousel owl-theme">
+									{% for ep in temp.episodio_set.all %}
 
-							{% for ep in temp.episodio_set.all %}
-								<h1>{{ep}}</h1>
-							{% endfor %}
+									<div class="item">
+										<div>
+											
+											<a href="#">
+												{% thumbnail ep.imagen "256x340" crop="center" as im %}
+												<img src="{{im.url}}" alt="">
+
+												{%empty%}
+												<img src="http://via.placeholder.com/265x340" alt="">
+												{% endthumbnail%}
+											</a>
+											<h4 class="left no-underline"> {{ep}}</h4>
+										</div>
+
+									</div>
+									{% endfor %}
+								</div>
+							
 						{% endfor %}
 
 						<div class="owl-carousel owl-theme">
