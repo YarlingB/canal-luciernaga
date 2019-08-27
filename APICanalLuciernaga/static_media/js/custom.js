@@ -52,7 +52,7 @@ jQuery(function ($) {
 		$('#newIn').not('.slick-initialized').slick({
 			autoplay: false,
 			autoplaySpeed: 3000,
-			slidesToShow: 4,
+			slidesToShow: 3,
 			centerPadding: '60px',
 			prevArrow: '<i class="material-icons left">keyboard_arrow_left</i>',
 			nextArrow: '<i class="material-icons right">keyboard_arrow_right</i>',
