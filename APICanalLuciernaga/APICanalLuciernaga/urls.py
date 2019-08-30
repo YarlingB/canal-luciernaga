@@ -51,6 +51,7 @@ urlpatterns = [
     path('videos/',include('videoteca.urls')),
     path('biblioteca/', include('biblioteca.urls')),
     path('en-directo/',include('programacion.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 
 ]
 

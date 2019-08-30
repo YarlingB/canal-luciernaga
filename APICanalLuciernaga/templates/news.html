@@ -23,7 +23,7 @@
 		{% for news in news_list %}
 
 		{% if news.portada %}
-		<div class="item {% if forloop.first %}active{% endif %} " style="background-image: url(/static/img/movie-main_banner.jpg)">
+		<div class="item {% if forloop.first %}active{% endif %} " style="background-image: url({{news.banner.url}})">
 			<div class="container">
 				<div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0" data-translatey="100">
 					<div class="col-md-9 main-items">
@@ -77,7 +77,7 @@
 					</a>
 				</div>
 
-				<p style="max-height: 192px; overflow: hidden;">{{all_news.descripcion|striptags|truncatechars:470}}<a href="{% url 'news_detail' all_news.slug %}" class="">
+				<p style="max-height: 192px; overflow: hidden;">{{all_news.descripcion|safe|striptags|truncatechars:470}}<a href="{% url 'news_detail' all_news.slug %}" class="">
 					<span>Leer más</span>
 				</a></p>
 

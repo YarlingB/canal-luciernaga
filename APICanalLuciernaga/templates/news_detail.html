@@ -54,11 +54,16 @@
 
 				<img src="{{object.foto.url}}" class="news-single-img" alt="" />
 
-				<p class="white-color">{{object.descripcion}}</p>
+				<p class="white-color">{{object.descripcion|safe}}</p>
 
 				<div class="bordered">
 					<div class="single-tags">
-						<i class="material-icons">label</i> <a href="#">Accion social</a>
+						<i class="material-icons">label</i>
+						
+						{% for tag in object.tags.all %}
+							{{tag}}
+						{% endfor %}
+						
 					</div>
 					<div class="social-share">
 						<a href="#">

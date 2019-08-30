@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from lugar.models import Pais
 from sorl.thumbnail import ImageField
 from noticias.models import Categoria
+from ckeditor_uploader.fields import RichTextUploadingField
 
 #Create your models here.
 
@@ -35,7 +36,7 @@ class Video(models.Model):
     categoria = models.ManyToManyField(Categoria,verbose_name='Categoría')
     nombre = models.CharField('Nombre',max_length = 225)
     imagen = ImageField('Imagen',upload_to='fotos/videos')
-    sinopsis = models.TextField('Sinopsis')
+    sinopsis = RichTextUploadingField(verbose_name='Descripción')
     fecha = models.DateField('Fecha') 
     director = models.ForeignKey(Director, on_delete = models.CASCADE,verbose_name='Director')
     produccion = models.CharField('Producción',max_length = 255)
